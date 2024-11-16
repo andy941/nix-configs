@@ -14,13 +14,15 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-    # Please replace my-nixos with your hostname
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: let 
+  	inherit (self) outputs; 
+	in {
     nixosConfigurations =  {
-      andrea = nixpkgs.lib.nixosSystem {
+      nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs outputs; };
       modules = [
+
         ./configuration.nix
 
         # make home-manager as a module of nixos
@@ -30,7 +32,6 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
 
-          # TODO replace ryan with your own username
           home-manager.users.andrea = import ./home.nix;
 
           # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
