@@ -5,10 +5,9 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = false;
@@ -17,6 +16,25 @@
   boot.loader.grub.devices = [ "nodev" ];
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
+  boot.loader.grub.configurationLimit = 10;
+
+  # Perform garbage collection weekly to maintain low disk usage
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
+
+  # Optimize storage
+  # You can also manually optimize the store via:
+  #    nix-store --optimise
+  nix.settings.auto-optimise-store = true;
+
+  # Swap
+  swapDevices = [{
+    device = "/swapfile";
+    size = 8 * 1024;
+  }];
 
   networking.hostName = "nixos"; # Define your hostname.
 
@@ -71,9 +89,10 @@
     isNormalUser = true;
     description = "Andrea Finocchio";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    packages = with pkgs;
+      [
+        #  thunderbird
+      ];
   };
 
   # Install firefox.
@@ -89,9 +108,14 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
-    neovim
     wget
     curl
+    llvm
+    gcc
+    clang
+    gnumake
+    cmake
+    coreutils-full
   ];
 
   # Set default editor

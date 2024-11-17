@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -14,29 +15,33 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: let 
-  	inherit (self) outputs; 
-	in {
-    nixosConfigurations =  {
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }: {
+    nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs outputs; };
-      modules = [
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
 
-        ./configuration.nix
+          ./configuration.nix
 
-        # make home-manager as a module of nixos
-        # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
+          # make home-manager as a module of nixos
+          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
 
-          home-manager.users.andrea = import ./home.nix;
+            home-manager.users.andrea = import ./home.nix;
 
-          # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-        }
-       ];
+            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+            home-manager.extraSpecialArgs = {
+              unstable = import nixpkgs-unstable {
+                system = "x86_64-linux";
+                config.allowUnfree = true;
+              };
+            };
+          }
+        ];
       };
     };
   };

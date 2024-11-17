@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 
 {
   home.username = "andrea";
@@ -27,8 +27,13 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    # here is some command line tools I use frequently
-    # feel free to add your own or remove some of them
+
+    # Interpreters
+    nodejs
+    python3
+    R
+    lua5_1
+    luarocks
 
     neofetch
     yazi # terminal file manager
@@ -40,7 +45,7 @@
     p7zip
 
     # utils
-    fd# recursively searches files in directories
+    fd # recursively searches files in directories
     ripgrep # recursively searches directories for a regex pattern
     jq # A lightweight and flexible command-line JSON processor
     fzf # A command-line fuzzy finder
@@ -56,16 +61,47 @@
     # with more details log output
     nix-output-monitor
 
-    htop  # replacement of htop/nmon
+    htop # replacement of htop/nmon
     iotop # io monitoring
     iftop # network monitoring
+
+    # Fonts
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+
+    # Formatters
+    nixfmt-classic
+
+    # LSPs
+    nil
   ];
+
+  # Enable configuring fonts
+  fonts.fontconfig.enable = true;
+
+  programs.neovim = {
+    package = unstable.neovim-unwrapped;
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+  };
 
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
     userName = "Andrea Finocchio";
     userEmail = "finocchio.andrea94@gmail.com";
+  };
+
+  programs.gh.enable = true;
+
+  programs.kitty = {
+    enable = true;
+    font.name = "JetBrainsMono NF";
+    font.size = 10;
+    shellIntegration = { enableZshIntegration = true; };
+    theme = "Catppuccin-Mocha";
   };
 
   programs.bash = {
@@ -79,8 +115,10 @@
     # set some aliases, feel free to add more or remove some
     shellAliases = {
       k = "kubectl";
-      urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
-      urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
+      urldecode =
+        "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
+      urlencode =
+        "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
     };
   };
 
