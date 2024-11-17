@@ -48,7 +48,6 @@
     fd # recursively searches files in directories
     ripgrep # recursively searches directories for a regex pattern
     jq # A lightweight and flexible command-line JSON processor
-    fzf # A command-line fuzzy finder
 
     # networking tools
     which
@@ -104,22 +103,25 @@
     theme = "Catppuccin-Mocha";
   };
 
-  programs.bash = {
+  programs.zsh = {
     enable = true;
     enableCompletion = true;
-    # TODO add your custom bashrc here
-    bashrcExtra = ''
-      export PATH="$PATH:$HOME/.local/bin"
-    '';
+    autosuggestion.enable = true;
+    plugins = with pkgs; [{
+      name = "zsh-syntax-highlighting";
+      src = fetchFromGitHub {
+        owner = "zsh-users";
+        repo = "zsh-syntax-highlighting";
+        rev = "0.6.0";
+        sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
+      };
+      file = "zsh-syntax-highlighting.zsh";
+    }];
+  };
 
-    # set some aliases, feel free to add more or remove some
-    shellAliases = {
-      k = "kubectl";
-      urldecode =
-        "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
-      urlencode =
-        "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
-    };
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   # This value determines the home Manager release that your
