@@ -123,4 +123,6 @@
 
   system.stateVersion = "24.05";
 
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
 }
