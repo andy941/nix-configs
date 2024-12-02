@@ -1,11 +1,14 @@
-{ config, pkgs, unstable, ... }:
+{ config, pkgs, unstable, inputs, ... }:
 
 {
+
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
 
   home.username = "andrea";
   home.homeDirectory = "/home/andrea";
+
+  # sharedModules = [ inputs.self.outputs.homeManagerModules.default ];
 
   # set cursor size and dpi for 4k monitor
   xresources.properties = {
@@ -14,13 +17,9 @@
   };
 
   # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
+  home.packages = [
     # Fonts
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-  ];
-
-  imports = [
-    ./hm_common.nix
   ];
 
   # Enable configuring fonts
@@ -56,21 +55,8 @@
     theme = "Catppuccin-Mocha";
   };
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    plugins = with pkgs; [{
-      name = "zsh-syntax-highlighting";
-      src = fetchFromGitHub {
-        owner = "zsh-users";
-        repo = "zsh-syntax-highlighting";
-        rev = "0.6.0";
-        sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
-      };
-      file = "zsh-syntax-highlighting.zsh";
-    }];
-  };
+  coreUserPkgs.enable = true;
+  zsh.enable = true;
 
   programs.fzf = {
     enable = true;

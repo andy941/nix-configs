@@ -8,31 +8,38 @@
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
+
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, nixpkgs-unstable, home-manager, ... }: {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration.nix
+          ./hosts/nixos/configuration.nix
+          ./nixos_modules
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = ".hm.bk";
-            home-manager.users.andrea = import ./home.nix;
             home-manager.extraSpecialArgs = {
-              unstable = import nixpkgs-unstable {
+              inherit inputs;
+              unstable = import inputs.nixpkgs-unstable {
                 system = "x86_64-linux";
                 config.allowUnfree = true;
               };
             };
+            home-manager.users.andrea = import ./users/andrea/home.nix;
+            home-manager.sharedModules =
+              # [ inputs.self.outputs.homeManagerModules.default ];
+              [ ./hm_modules ];
           }
         ];
       };
+      homeManagerModules = ./hm_modules;
     };
   };
 }

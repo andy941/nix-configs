@@ -9,17 +9,6 @@
     ./hardware-configuration.nix
   ];
 
-  # Bootloader.
-  boot.loader = {
-    systemd-boot.enable = false;
-    efi.canTouchEfiVariables = true;
-    grub.enable = true;
-    grub.devices = [ "nodev" ];
-    grub.efiSupport = true;
-    grub.useOSProber = true;
-    grub.configurationLimit = 10;
-  };
-
   # Perform garbage collection weekly to maintain low disk usage
   nix = {
     gc = {
@@ -29,6 +18,9 @@
     };
     settings.auto-optimise-store = true;
   };
+
+  # Configure bootloader
+  grub.enable = true;
 
   # Swap
   swapDevices = [{
