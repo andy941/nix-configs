@@ -33,13 +33,10 @@
               };
             };
             home-manager.users.andrea = import ./users/andrea/home.nix;
-            home-manager.sharedModules =
-              # [ inputs.self.outputs.homeManagerModules.default ];
-              [ ./hm_modules ];
+            home-manager.sharedModules = [ ./hm_modules ];
           }
         ];
       };
-      homeManagerModules = ./hm_modules;
     };
   };
 }
