@@ -11,6 +11,7 @@
     ./yazi.nix
     ./firefox.nix
     ./vlc.nix
+    ./hyprland.nix
   ];
 
   coreUserPkgs.enable = lib.mkDefault true;
@@ -23,6 +24,7 @@
   gh.enable = lib.mkDefault true;
   yazi.enable = lib.mkDefault true;
 
+  hyprland.enable = lib.mkDefault false;
   firefox.enable = lib.mkDefault true;
   vlc.enable = lib.mkDefault true;
 }
