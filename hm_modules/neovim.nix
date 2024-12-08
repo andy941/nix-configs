@@ -24,7 +24,5 @@
       vimAlias = true;
       vimdiffAlias = true;
     };
-
   };
-
 }

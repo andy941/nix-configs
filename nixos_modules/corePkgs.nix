@@ -16,8 +16,8 @@
       coreutils-full
       gparted
       xclip
-      pgrep
+      killall
+      pkg-config
     ];
   };
-
 }

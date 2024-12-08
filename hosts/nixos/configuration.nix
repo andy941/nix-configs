@@ -21,18 +21,9 @@
   programs.hyprland.package =
     inputs.hyprland.packages."${pkgs.system}".hyprland;
 
-  # # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  #
-  # # Enable the Plasma KDE Desktop Environment.
-  # services.displayManager.sddm.enable = true;
-  # services.desktopManager.plasma6.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
+  # Enable the X11 windowing system for login screen (FIX)
+  services.xserver.enable = true;
+  services.displayManager.sddm.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

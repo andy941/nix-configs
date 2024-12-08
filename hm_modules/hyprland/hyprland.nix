@@ -7,7 +7,7 @@
 
   config = lib.mkIf config.hyprland.enable {
 
-    services.blueman-applet.enable = true;
+    services.blueman-applet.enable = true; # FIX: NOT WORKING??
     services.network-manager-applet.enable = true;
 
     redshift.enable = lib.mkDefault true;
@@ -20,6 +20,8 @@
       xwayland.enable = true;
 
       settings = {
+        # exec-once = [ ];
+
         monitor = [
           "eDP-1,highres@highrr,0x0,1,bitdepth,10"
           "DP-3,highres@highrr,auto-up,1.5,bitdepth,10"
