@@ -1,4 +1,4 @@
-{ pkgs, lib, osCOnfig, ... }: {
+{ pkgs, lib, config, ... }: {
   imports = [
     ./coreUserPkgs.nix
     ./zsh.nix
@@ -9,9 +9,10 @@
     ./fonts.nix
     ./gh.nix
     ./yazi.nix
+
+    ./hyprland
     ./firefox.nix
     ./vlc.nix
-    ./hyprland.nix
   ];
 
   coreUserPkgs.enable = lib.mkDefault true;
@@ -24,7 +25,7 @@
   gh.enable = lib.mkDefault true;
   yazi.enable = lib.mkDefault true;
 
-  hyprland.enable = lib.mkDefault false;
+  hyprland.enable = lib.mkDefault true;
   firefox.enable = lib.mkDefault true;
   vlc.enable = lib.mkDefault true;
 }

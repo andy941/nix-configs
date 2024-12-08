@@ -15,6 +15,8 @@
       cmake
       coreutils-full
       gparted
+      xclip
+      pgrep
     ];
   };
 

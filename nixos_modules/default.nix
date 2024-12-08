@@ -6,6 +6,7 @@
     ./locale.nix
     ./corePkgs.nix
     ./pipewire.nix
+    ./bluetooth.nix
   ];
 
   corePkgs.enable = lib.mkDefault true;
@@ -15,4 +16,5 @@
 
   swapFile.enable = lib.mkDefault true;
   pipewire.enable = lib.mkDefault true;
+  bluetooth.enable = lib.mkDefault true;
 }
