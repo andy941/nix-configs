@@ -1,17 +1,20 @@
 { pkgs, lib, config, ... }:
 
 {
-  imports = [ ./redshift.nix ./waybar/waybar.nix ];
+  imports = [
+    ./redshift.nix
+    ./waybar/waybar.nix
+    ./rofi/rofi.nix
+  ];
 
   options = { hyprland.enable = lib.mkEnableOption "enables hyprland"; };
 
   config = lib.mkIf config.hyprland.enable {
 
-    services.blueman-applet.enable = true; # FIX: NOT WORKING??
-    services.network-manager-applet.enable = true;
-
-    redshift.enable = lib.mkDefault true;
     waybar.enable = lib.mkDefault true;
+    redshift.enable = lib.mkDefault true;
+
+    rofi.enable = lib.mkDefault true;
 
     # home.packages = with pkgs; [];
 
@@ -61,15 +64,21 @@
 
         };
 
+        windowrule = [ "float,Rofi" ];
+
         bind = [
           "$mod,RETURN,exec,kitty"
 
+          "$mod,d,exec,rofi -show drun"
+          "$mod SHIFT,d,exec,rofi -show run"
+          "$mod,p,exec,rofi-pass"
+
           "$mod,F,fullscreen,"
 
-          "$mod}SHIFT,h,movewindow,l"
-          "$mod}SHIFT,l,movewindow,r"
-          "$mod}SHIFT,k,movewindow,u"
-          "$mod}SHIFT,j,movewindow,d"
+          "$mod SHIFT,h,movewindow,l"
+          "$mod SHIFT,l,movewindow,r"
+          "$mod SHIFT,k,movewindow,u"
+          "$mod SHIFT,j,movewindow,d"
 
           "$mod,h,movefocus,l"
           "$mod,l,movefocus,r"

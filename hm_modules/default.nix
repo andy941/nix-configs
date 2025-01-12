@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, stable, ... }: {
   imports = [
     ./coreUserPkgs.nix
     ./zsh.nix
@@ -25,6 +25,7 @@
   gh.enable = lib.mkDefault true;
   yazi.enable = lib.mkDefault true;
 
+  # Desktop
   hyprland.enable = lib.mkDefault true;
   firefox.enable = lib.mkDefault true;
   vlc.enable = lib.mkDefault true;
