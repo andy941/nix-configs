@@ -18,6 +18,7 @@
       xclip
       killall
       pkg-config
+      mlocate
     ];
   };
 }

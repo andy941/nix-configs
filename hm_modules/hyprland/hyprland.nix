@@ -5,6 +5,9 @@
     ./redshift.nix
     ./waybar/waybar.nix
     ./rofi/rofi.nix
+    ./hyprpaper/hyprpaper.nix
+    ./hyprlock.nix
+    ./hypridle.nix
   ];
 
   options = { hyprland.enable = lib.mkEnableOption "enables hyprland"; };
@@ -13,21 +16,24 @@
 
     waybar.enable = lib.mkDefault true;
     redshift.enable = lib.mkDefault true;
-
     rofi.enable = lib.mkDefault true;
+    hyprpaper.enable = lib.mkDefault true;
+    hyprlock.enable = lib.mkDefault true;
+    hypridle.enable = lib.mkDefault true;
 
     # home.packages = with pkgs; [];
 
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
+      systemd.variables = [ "--all" ];
 
       settings = {
-        # exec-once = [ ];
+        exec-once = [ "hyprpaper" ];
 
         monitor = [
           "eDP-1,highres@highrr,0x0,1,bitdepth,10"
-          "DP-3,highres@highrr,auto-up,1.5,bitdepth,10"
+          "DP-3,highres@highrr,auto-up,1,bitdepth,10"
           ",highres@highrr,auto-left,1,bitdepth,10"
         ];
 

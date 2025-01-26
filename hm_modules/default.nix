@@ -9,6 +9,7 @@
     ./fonts.nix
     ./gh.nix
     ./yazi.nix
+    ./starship.nix
 
     ./hyprland
     ./firefox.nix
@@ -24,6 +25,7 @@
   fonts.enable = lib.mkDefault true;
   gh.enable = lib.mkDefault true;
   yazi.enable = lib.mkDefault true;
+  starship.enable = lib.mkDefault true;
 
   # Desktop
   hyprland.enable = lib.mkDefault true;

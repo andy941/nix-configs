@@ -7,9 +7,6 @@
     home.packages = with pkgs; [
       fd
       ripgrep
-      nodejs
-      python3
-      R
       lua5_1
       luarocks
       nixfmt-classic

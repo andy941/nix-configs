@@ -7,6 +7,19 @@
 
   config = lib.mkIf config.coreUserPkgs.enable {
     # Packages that should be installed to the user profile.
-    home.packages = with pkgs; [ zip xz unzip p7zip jq which tree gnupg htop ];
+    home.packages = with pkgs; [
+      zip
+      xz
+      unzip
+      p7zip
+      jq
+      which
+      tree
+      gnupg
+      htop
+      nodejs
+      python3
+      R
+    ];
   };
 }
