@@ -16,23 +16,23 @@
         };
 
         input-field = {
-          size = "300,40";
+          size = "400, 100";
           outline_thickness = 3;
           dots_size = 0.2;
           dots_spacing = 0.15;
           dots_center = true;
-          fade_on_empty = true;
-          placeholder_text = "<i>Input Password...</i>";
+          fade_on_empty = false;
           hide_input = false;
-          position = "0,0";
+          position = "0, -300";
           halign = "center";
           valign = "center";
         };
 
         label = {
           text = "$TIME";
-          font_size = 100;
-          position = "-0,0";
+          font_family = "JetBrains Mono Extrabold";
+          font_size = 400;
+          position = "0, 0";
           halign = "center";
           valign = "center";
         };

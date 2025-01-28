@@ -15,7 +15,7 @@
   config = lib.mkIf config.hyprland.enable {
 
     waybar.enable = lib.mkDefault true;
-    redshift.enable = lib.mkDefault true;
+    redshift.enable = lib.mkDefault false;
     rofi.enable = lib.mkDefault true;
     hyprpaper.enable = lib.mkDefault true;
     hyprlock.enable = lib.mkDefault true;
@@ -38,17 +38,17 @@
         ];
 
         workspace = [
-          "1,monitor:DP-3,default:true"
-          "2,monitor:DP-3"
-          "3,monitor:DP-3"
-          "4,monitor:DP-3"
-          "5,monitor:DP-3"
-          "6,monitor:DP-3"
+          "1,monitor:DP-4,persistent:true,default:true"
+          "2,monitor:DP-4,persistent:true"
+          "3,monitor:DP-4,persistent:true"
+          "4,monitor:DP-4,persistent:true"
+          "5,monitor:DP-4,persistent:true"
+          "6,monitor:DP-4,persistent:true"
 
-          "7,monitor:eDP-1,default:true"
-          "8,monitor:eDP-1"
-          "9,monitor:eDP-1"
-          "10,monitor:eDP-1"
+          "7,monitor:eDP-1,persistent:true,default:true"
+          "8,monitor:eDP-1,persistent:true"
+          "9,monitor:eDP-1,persistent:true"
+          "10,monitor:eDP-1,persistent:true"
         ];
 
         "$mod" = "SUPER";

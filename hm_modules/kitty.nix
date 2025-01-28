@@ -8,7 +8,7 @@
       enable = true;
       font = {
         name = "JetBrainsMono NF";
-        size = 10;
+        size = 14;
       };
       shellIntegration = { enableZshIntegration = true; };
       theme = "Catppuccin-Mocha";

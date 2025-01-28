@@ -19,7 +19,22 @@
 
   # Enable the X11 windowing system for login screen (FIX)
   services.xserver.enable = true;
-  services.displayManager.sddm.enable = true;
+  environment.systemPackages = [
+    (pkgs.catppuccin-sddm.override {
+      flavor = "mocha";
+      font = "JetBrainsMono";
+      fontSize = "14";
+      background =
+        "${../../wallpapers/stormtrooper-star-wars-black-background-amoled-3840x2160-8296.png}";
+      loginBackground = true;
+    })
+  ];
+
+  services.displayManager.sddm = {
+    enable = true;
+    theme = "catppuccin-mocha";
+    package = pkgs.kdePackages.sddm;
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
