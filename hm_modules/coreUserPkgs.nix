@@ -17,6 +17,7 @@
       tree
       gnupg
       htop
+      bottom
       nodejs
       python3
       R

@@ -21,7 +21,7 @@
     hyprlock.enable = lib.mkDefault true;
     hypridle.enable = lib.mkDefault true;
 
-    # home.packages = with pkgs; [];
+    home.packages = with pkgs; [ brightnessctl ];
 
     wayland.windowManager.hyprland = {
       enable = true;
@@ -33,22 +33,22 @@
 
         monitor = [
           "eDP-1,highres@highrr,0x0,1,bitdepth,10"
-          "DP-3,highres@highrr,auto-up,1,bitdepth,10"
+          "desc:Samsung Electric Company U32J59x HNMW300479,highres@highrr,auto-up,1,bitdepth,10"
           ",highres@highrr,auto-left,1,bitdepth,10"
         ];
 
         workspace = [
-          "1,monitor:DP-4,persistent:true,default:true"
-          "2,monitor:DP-4,persistent:true"
-          "3,monitor:DP-4,persistent:true"
-          "4,monitor:DP-4,persistent:true"
-          "5,monitor:DP-4,persistent:true"
-          "6,monitor:DP-4,persistent:true"
+          "1,monitor:desc:Samsung Electric Company U32J59x HNMW300479,persistent:false,default:true"
+          "2,monitor:desc:Samsung Electric Company U32J59x HNMW300479,persistent:false"
+          "3,monitor:desc:Samsung Electric Company U32J59x HNMW300479,persistent:false"
+          "4,monitor:desc:Samsung Electric Company U32J59x HNMW300479,persistent:false"
+          "5,monitor:desc:Samsung Electric Company U32J59x HNMW300479,persistent:false"
+          "6,monitor:desc:Samsung Electric Company U32J59x HNMW300479,persistent:false"
 
-          "7,monitor:eDP-1,persistent:true,default:true"
-          "8,monitor:eDP-1,persistent:true"
-          "9,monitor:eDP-1,persistent:true"
-          "10,monitor:eDP-1,persistent:true"
+          "7,monitor:eDP-1,persistent:false,default:true"
+          "8,monitor:eDP-1,persistent:false"
+          "9,monitor:eDP-1,persistent:false"
+          "0,monitor:eDP-1,persistent:false"
         ];
 
         "$mod" = "SUPER";
@@ -57,9 +57,6 @@
 
         decoration = {
           rounding = 5;
-          drop_shadow = true;
-          shadow_range = 4;
-          shadow_render_power = 3;
           blur = {
             enabled = true;
             size = 5;
@@ -114,6 +111,19 @@
 
           "$mod,q,killactive,"
 
+          ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+          ",XF86MonBrightnessUp, exec, brightnessctl s +10%"
+        ];
+
+        bindel = [
+          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ];
+        bindl = [
+          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86AudioPlay, exec, playerctl play-pause"
+          ", XF86AudioPrev, exec, playerctl previous"
+          ", XF86AudioNext, exec, playerctl next"
         ];
       };
 

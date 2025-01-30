@@ -31,4 +31,9 @@
   hyprland.enable = lib.mkDefault true;
   firefox.enable = lib.mkDefault true;
   vlc.enable = lib.mkDefault true;
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+    nvim.enable = false;
+  };
 }

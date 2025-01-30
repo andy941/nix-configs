@@ -1,7 +1,7 @@
-{ config, pkgs, unstable, inputs, ... }:
+{ version, ... }:
 
 {
-  home.stateVersion = "24.05";
+  home.stateVersion = version;
   programs.home-manager.enable = true;
 
   home.username = "andrea";

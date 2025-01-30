@@ -11,7 +11,6 @@
         size = 14;
       };
       shellIntegration = { enableZshIntegration = true; };
-      theme = "Catppuccin-Mocha";
       settings = {
         confirm_os_window_close = 0;
         enable_audio_bell = 0;
