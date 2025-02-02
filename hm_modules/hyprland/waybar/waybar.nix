@@ -8,14 +8,6 @@
     home.packages = with pkgs; [ pavucontrol playerctl wlogout ];
 
     services.network-manager-applet.enable = true;
-    services.blueman-applet.enable = true;
-
-    wayland.windowManager.hyprland.settings = {
-      exec-once =
-        [ "sleep 10; blueman-tray" ]; # FIX: why is this even needed ...
-    };
-
-    catppuccin.waybar.enable = false;
 
     programs.waybar = {
       enable = true;
@@ -25,22 +17,77 @@
       settings = [{
         layer = "top";
         position = "top";
+        spacing = 20;
 
         modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "custom/music" ];
-        modules-right =
-          [ "pulseaudio" "backlight" "battery" "clock" "tray" "custom/power" ];
+        modules-center = [ "custom/music" "hyprland/submap" ];
+        modules-right = [
+          "cpu"
+          "memory"
+          "disk"
+
+          "pulseaudio"
+
+          "battery"
+          "bluetooth"
+
+          "clock"
+
+          "tray"
+
+          "custom/power"
+        ];
 
         "hyprland/workspaces" = {
           disable-scroll = true;
           sort-by-name = true;
           format = " {icon} ";
-          format-icons = { default = " "; };
+          format-icons = { default = ""; };
         };
 
-        tray = {
-          icon-size = 21;
-          spacing = 10;
+        "hyprland/submap" = {
+          "format" = "{}";
+          "tooltip" = true;
+        };
+
+        cpu = {
+          interval = 5;
+          format = " {usage}%";
+        };
+
+        memory = {
+          interval = 10;
+          format = "  {percentage}% ({used:0.1f}G)";
+          format-alt =
+            "  {percentage}% {used:0.1f}G/{total:0.1f}G ({swapUsed:0.1f}G/{swapTotal:0.1f}G)";
+        };
+
+        disk = {
+          interval = 30;
+          format = "  {percentage_used}% ({free})";
+          unit = "GB";
+        };
+
+        bluetooth = {
+          format = " {status}";
+          format-connected = " {device_alias}";
+          format-connected-battery =
+            "{device_alias} ({device_battery_percentage}%)";
+          tooltip-format = ''
+            {controller_alias} {controller_address}
+
+            {num_connections} connected'';
+          tooltip-format-connected = ''
+            {controller_alias} {controller_address}
+
+            {num_connections} connected
+
+            {device_enumerate}'';
+          tooltip-format-enumerate-connected =
+            "{device_alias}	{device_address}";
+          tooltip-format-enumerate-connected-battery =
+            "{device_alias}	{device_address}	{device_battery_percentage}%";
+          on-click = "blueman-manager";
         };
 
         "custom/music" = {
@@ -52,40 +99,45 @@
           on-click = "playerctl play-pause";
           max-length = 50;
         };
-        "clock" = {
+
+        battery = {
+          states = {
+            warning = 20;
+            critical = 5;
+          };
+          format = "{icon} {capacity}%";
+          format-charging = "{icon} {capacity}%";
+          format-plugged = "{icon} {capacity}%";
+          format-alt = "{icon} {capacity}%  {power} {time}";
+          format-icons = [ "" "" "" "" "" "" "" "" "" "" "" "" ];
+        };
+
+        pulseaudio = {
+          format = "{icon} {volume}%";
+          format-muted = "  MUT";
+          format-icons = { default = [ " " " " " " ]; };
+          on-click = "pavucontrol";
+        };
+
+        clock = {
           timezone = "Europe/London";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
           format-alt = "{:%d/%m/%Y}";
-          format = "{:%H:%M}";
+          format = "{:%H:%M %d/%m/%Y}";
         };
-        backlight = {
-          device = "intel_backlight";
-          format = "{icon}";
-          format-icons = [ " " " " " " " " " " " " " " " " " " ];
+
+        tray = {
+          icon-size = 21;
+          spacing = 10;
         };
-        "battery" = {
-          "states" = {
-            warning = 30;
-            critical = 1;
-          };
-          format = "{icon}";
-          format-charging = "";
-          format-plugged = "";
-          format-alt = "{icon}";
-          format-icons = [ "" "" "" "" "" "" "" "" "" "" "" "" ];
-        };
-        "pulseaudio" = {
-          format = "{icon} {volume}%";
-          format-muted = " ";
-          format-icons = { default = [ "" " " " " ]; };
-          on-click = "pavucontrol";
-        };
+
         "custom/power" = {
           tooltip = false;
           on-click = "wlogout &";
-          format = " ";
+          icon-size = 21;
+          format = "";
         };
       }];
     };

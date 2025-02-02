@@ -42,53 +42,56 @@
 #waybar {
   background: transparent;
   color: @text;
-  margin: 5px 5px;
-}
-
-#workspaces {
-  border-radius: 1rem;
-  margin: 5px;
-  background-color: @surface0;
-  margin-left: 1rem;
+  margin: 15px 0px;
 }
 
 #workspaces button {
   color: @lavender;
-  border-radius: 1rem;
-  padding: 0.4rem;
 }
 
 #workspaces button.active {
-  color: @sky;
-  border-radius: 1rem;
+  color: @pink;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
-  border-radius: 1rem;
+  color: @green;
 }
 
+#workspaces,
+#submap,
 #custom-music,
-#tray,
-#backlight,
-#clock,
-#battery,
+#cpu
+#memory
+#disk
 #pulseaudio,
-#custom-lock,
-#custom-power {
-  background-color: @surface0;
+#backlight,
+#battery,
+#bluetooth
+#clock,
+#custom-power,
+#tray {
   padding: 0.5rem 1rem;
   margin: 5px 0;
 }
 
+#cpu {
+  color: @text;
+}
+
+#memory {
+  color: @text;
+}
+
+#disk {
+  color: @text;
+}
+
 #clock {
-  color: @blue;
-  border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
+  color: @text;
 }
 
 #battery {
-  color: @green;
+  color: @text;
 }
 
 #battery.charging {
@@ -99,37 +102,22 @@
   color: @red;
 }
 
+#pulseaudio {
+  color: @maroon;
+}
+
 #backlight {
   color: @yellow;
 }
 
-#backlight, #battery {
-    border-radius: 0;
-}
-
-#pulseaudio {
-  color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
+#bluetooth {
+  color: @blue;
 }
 
 #custom-music {
   color: @mauve;
-  border-radius: 1rem;
-}
-
-#custom-lock {
-    border-radius: 1rem 0px 0px 1rem;
-    color: @rosewater;
 }
 
 #custom-power {
-    margin-right: 1rem;
-    border-radius: 0px 1rem 1rem 0px;
-    color: @red;
-}
-
-#tray {
-  margin-right: 1rem;
-  border-radius: 1rem;
+  color: @red;
 }
