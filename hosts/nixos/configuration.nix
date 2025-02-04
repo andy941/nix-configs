@@ -1,14 +1,19 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, lib, inputs, version, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
-  system.stateVersion = "24.05";
+  system.stateVersion = version;
 
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true;
+
+    # Avoid DNS leaks with Surfshark
+    nameservers = [ "162.252.172.57" "149.154.159.92" ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/London";
