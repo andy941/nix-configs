@@ -17,31 +17,28 @@
       settings = [{
         layer = "top";
         position = "top";
-        spacing = 20;
+        margin-bottom = 0;
+        padding-bottom = 0;
 
-        modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "custom/music" "hyprland/submap" ];
+        modules-left =
+          [ "hyprland/workspaces" "hyprland/submap" "custom/music" ];
+        modules-center = [ ];
         modules-right = [
           "cpu"
           "memory"
           "disk"
-
           "pulseaudio"
-
-          "battery"
           "bluetooth"
-
+          "battery"
           "clock"
-
           "tray"
-
           "custom/power"
         ];
 
         "hyprland/workspaces" = {
           disable-scroll = true;
           sort-by-name = true;
-          format = " {icon} ";
+          format = "{icon}";
           format-icons = { default = ""; };
         };
 
@@ -52,27 +49,27 @@
 
         cpu = {
           interval = 5;
-          format = " {usage}%";
+          format = "{usage}%   ";
         };
 
         memory = {
           interval = 10;
-          format = "  {percentage}% ({used:0.1f}G)";
+          format = "{percentage}% ({used:0.1f}G)   ";
           format-alt =
-            "  {percentage}% {used:0.1f}G/{total:0.1f}G ({swapUsed:0.1f}G/{swapTotal:0.1f}G)";
+            "{percentage}% {used:0.1f}G/{total:0.1f}G ({swapUsed:0.1f}G/{swapTotal:0.1f}G)  ";
         };
 
         disk = {
           interval = 30;
-          format = "  {percentage_used}% ({free})";
+          format = "{percentage_used}% ({free})   ";
           unit = "GB";
         };
 
         bluetooth = {
-          format = " {status}";
-          format-connected = " {device_alias}";
+          format = "{status} ";
+          format-connected = "{device_alias} ";
           format-connected-battery =
-            "{device_alias} ({device_battery_percentage}%)";
+            "{device_alias} ({device_battery_percentage}%) ";
           tooltip-format = ''
             {controller_alias} {controller_address}
 
@@ -91,7 +88,7 @@
         };
 
         "custom/music" = {
-          format = "  {}";
+          format = "{} ";
           escape = true;
           interval = 5;
           tooltip = false;
@@ -105,17 +102,17 @@
             warning = 20;
             critical = 5;
           };
-          format = "{icon} {capacity}%";
-          format-charging = "{icon} {capacity}%";
-          format-plugged = "{icon} {capacity}%";
-          format-alt = "{icon} {capacity}%  {power} {time}";
-          format-icons = [ "" "" "" "" "" "" "" "" "" "" "" "" ];
+          format = "{capacity}% {icon}";
+          format-charging = "{capacity}% {icon}";
+          format-plugged = "{capacity}% {icon}";
+          format-alt = "{capacity}%  {power} {time} {icon}";
+          format-icons = [ " " " " " " " " " " ];
         };
 
         pulseaudio = {
-          format = "{icon} {volume}%";
-          format-muted = "  MUT";
-          format-icons = { default = [ " " " " " " ]; };
+          format = "{volume}% {icon}";
+          format-muted = "MUT   ";
+          format-icons = { default = [ " " "  " "  " ]; };
           on-click = "pavucontrol";
         };
 
@@ -128,15 +125,11 @@
           format = "{:%H:%M %d/%m/%Y}";
         };
 
-        tray = {
-          icon-size = 21;
-          spacing = 10;
-        };
+        tray = { spacing = 7; };
 
         "custom/power" = {
           tooltip = false;
           on-click = "wlogout &";
-          icon-size = 21;
           format = "";
         };
       }];
