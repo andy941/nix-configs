@@ -28,7 +28,7 @@
           "memory"
           "disk"
           "pulseaudio"
-          "bluetooth"
+          # "bluetooth"
           "battery"
           "clock"
           "tray"

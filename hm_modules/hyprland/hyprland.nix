@@ -53,7 +53,12 @@
 
         "$mod" = "SUPER";
 
-        general = { border_size = 3; };
+        general = {
+          border_size = 3;
+          resize_on_border = true;
+          no_focus_fallback = true;
+          snap.enabled = true;
+        };
 
         decoration = {
           rounding = 5;
@@ -64,10 +69,19 @@
             new_optimizations = "on";
             ignore_opacity = "off";
           };
-
         };
 
-        windowrule = [ "float,Rofi" ];
+        input = {
+          repeat_rate = 25;
+          repeat_delay = 500;
+        };
+
+        windowrule = [
+          "float,Rofi"
+          "float,.blueman-manager-wrapped"
+          "float,org.pulseaudio.pavucontrol"
+          "float,nm-connection-editor"
+        ];
 
         bind = [
           "$mod,RETURN,exec,kitty"
@@ -125,6 +139,8 @@
           ", XF86AudioPrev, exec, playerctl previous"
           ", XF86AudioNext, exec, playerctl next"
         ];
+
+        bindm = [ "$mod, mouse:272, movewindow" ];
       };
 
       extraConfig = lib.concatStrings [''
