@@ -8,6 +8,7 @@
     ./pipewire.nix
     ./bluetooth.nix
     ./qbittorrent.nix
+    ./plex.nix
   ];
 
   corePkgs.enable = lib.mkDefault true;
@@ -19,6 +20,7 @@
   swapFile.enable = lib.mkDefault true;
   pipewire.enable = lib.mkDefault true;
   bluetooth.enable = lib.mkDefault true;
+  plex.enable = lib.mkDefault true;
 
   # Unsafe
   qbittorrent.enable = lib.mkDefault false;
