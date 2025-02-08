@@ -20,6 +20,7 @@
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
+      extraLuaPackages = luaPkgs: with luaPkgs; [ magick ];
     };
   };
 }

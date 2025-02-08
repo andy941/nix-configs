@@ -12,9 +12,9 @@
   ];
 
   corePkgs.enable = lib.mkDefault true;
-  grub.enable = lib.mkDefault true;
   nixSettings.enable = lib.mkDefault true;
   locale.enable = lib.mkDefault true;
+  grub.enable = lib.mkDefault true;
 
   # Desktop
   swapFile.enable = lib.mkDefault true;

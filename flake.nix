@@ -24,7 +24,6 @@
     inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, catppuccin, ... }:
     let version = "24.11";
     in {
-
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
