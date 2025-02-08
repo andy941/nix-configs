@@ -10,30 +10,8 @@
     ./gh.nix
     ./yazi.nix
     ./starship.nix
-
     ./hyprland
     ./firefox.nix
     ./vlc.nix
   ];
-
-  coreUserPkgs.enable = lib.mkDefault true;
-  zsh.enable = lib.mkDefault true;
-  neovim.enable = lib.mkDefault true;
-  git.enable = lib.mkDefault true;
-  kitty.enable = lib.mkDefault true;
-  fzf.enable = lib.mkDefault true;
-  fonts.enable = lib.mkDefault true;
-  gh.enable = lib.mkDefault true;
-  yazi.enable = lib.mkDefault true;
-  starship.enable = lib.mkDefault true;
-
-  # Desktop
-  hyprland.enable = lib.mkDefault true;
-  firefox.enable = lib.mkDefault true;
-  vlc.enable = lib.mkDefault true;
-  catppuccin = {
-    enable = true;
-    flavor = "mocha";
-    nvim.enable = false;
-  };
 }

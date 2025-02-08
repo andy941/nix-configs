@@ -54,5 +54,22 @@
     extraGroups = [ "networkmanager" "wheel" "input" ];
   };
 
+  security.polkit.enable = true;
+
+  # Enable system modules
+
+  # Core modules and settings
+  corePkgs.enable = true;
+  nixSettings.enable = true;
+  locale.enable = true;
+
+  # Desktop
+  grub.enable = true;
+  swapFile.enable = true;
+  pipewire.enable = true;
+  bluetooth.enable = true;
+  plex.enable = true;
+
+  # Unsafe
   qbittorrent.enable = true;
 }
