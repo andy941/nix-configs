@@ -38,17 +38,19 @@
         ];
 
         workspace = [
-          "1,monitor:desc:Samsung Electric Company U32J59x HNMW300479,persistent:false,default:true"
-          "2,monitor:desc:Samsung Electric Company U32J59x HNMW300479,persistent:false"
-          "3,monitor:desc:Samsung Electric Company U32J59x HNMW300479,persistent:false"
-          "4,monitor:desc:Samsung Electric Company U32J59x HNMW300479,persistent:false"
-          "5,monitor:desc:Samsung Electric Company U32J59x HNMW300479,persistent:false"
-          "6,monitor:desc:Samsung Electric Company U32J59x HNMW300479,persistent:false"
+          ",persistent:false"
 
-          "7,monitor:eDP-1,persistent:false,default:true"
-          "8,monitor:eDP-1,persistent:false"
-          "9,monitor:eDP-1,persistent:false"
-          "0,monitor:eDP-1,persistent:false"
+          "1,monitor:desc:Samsung Electric Company U32J59x HNMW300479,default:true"
+          "2,monitor:desc:Samsung Electric Company U32J59x HNMW300479"
+          "3,monitor:desc:Samsung Electric Company U32J59x HNMW300479"
+          "4,monitor:desc:Samsung Electric Company U32J59x HNMW300479"
+          "5,monitor:desc:Samsung Electric Company U32J59x HNMW300479"
+          "6,monitor:desc:Samsung Electric Company U32J59x HNMW300479"
+
+          "7,monitor:eDP-1,default:true"
+          "8,monitor:eDP-1"
+          "9,monitor:eDP-1"
+          "0,monitor:eDP-1"
         ];
 
         "$mod" = "SUPER";
@@ -58,6 +60,9 @@
           resize_on_border = true;
           no_focus_fallback = true;
           snap.enabled = true;
+          hover_icon_on_border = false;
+          extend_border_grab_area = 20;
+          gaps_in = 10;
         };
 
         decoration = {
@@ -74,6 +79,15 @@
         input = {
           repeat_rate = 25;
           repeat_delay = 500;
+          follow_mouse = 2;
+          touchpad.natural_scroll = true;
+        };
+
+        binds = { workspace_center_on = 1; };
+
+        cursor = {
+          inactive_timeout = 2;
+          enable_hyprcursor = false;
         };
 
         windowrule = [
