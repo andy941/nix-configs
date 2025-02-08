@@ -18,18 +18,10 @@
   # Core
   coreUserPkgs.enable = true;
 
-  # Terminal
-  zsh.enable = true;
-  kitty.enable = true;
-  fonts.enable = true;
-  neovim.enable = true;
-  git.enable = true;
-  gh.enable = true;
-  fzf.enable = true;
-  yazi.enable = true;
-  starship.enable = true;
+  terminalDevEnv.enable = true;
+  dataScienceModules.enable = true;
 
-  # Desktop
+  # Desktop environment
   hyprland.enable = true;
   firefox.enable = true;
   vlc.enable = true;

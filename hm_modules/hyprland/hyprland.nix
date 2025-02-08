@@ -2,9 +2,6 @@
 
 {
   imports = [
-    ./redshift.nix
-    ./waybar/waybar.nix
-    ./rofi/rofi.nix
     ./hyprpaper/hyprpaper.nix
     ./hyprlock.nix
     ./hypridle.nix
@@ -15,13 +12,12 @@
   config = lib.mkIf config.hyprland.enable {
 
     waybar.enable = lib.mkDefault true;
-    redshift.enable = lib.mkDefault false;
     rofi.enable = lib.mkDefault true;
     hyprpaper.enable = lib.mkDefault true;
     hyprlock.enable = lib.mkDefault true;
     hypridle.enable = lib.mkDefault true;
 
-    home.packages = with pkgs; [ brightnessctl ];
+    home.packages = with pkgs; [ brightnessctl zathura];
 
     wayland.windowManager.hyprland = {
       enable = true;

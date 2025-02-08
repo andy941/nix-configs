@@ -70,6 +70,6 @@
   bluetooth.enable = true;
   plex.enable = true;
 
-  # Unsafe
+  # Unsafe pkgs
   qbittorrent.enable = true;
 }

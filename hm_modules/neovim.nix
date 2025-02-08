@@ -11,6 +11,12 @@
       luarocks
       nixfmt-classic
       nil
+      stylua
+      pyright
+      cbfmt
+      lua-language-server
+      marksman
+      clang-tools
     ];
 
     programs.neovim = {

@@ -13,5 +13,8 @@
     ./hyprland
     ./firefox.nix
     ./vlc.nix
+    ./rofi.nix
+    ./waybar/waybar.nix
+    ./aggregators
   ];
 }

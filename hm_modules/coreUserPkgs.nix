@@ -18,19 +18,6 @@
       gnupg
       htop
       bottom
-      nodejs
-      (python3.withPackages (ps: with ps; [ pandas regex ]))
-      quarto
-      zathura
-      stylua
-      pyright
-      cbfmt
-      lua-language-server
-      marksman
-      clang-tools
-      (rWrapper.override {
-        packages = with rPackages; [ languageserver reticulate ggplot2 ];
-      })
     ];
   };
 }
