@@ -7,6 +7,17 @@
   };
 
   config = lib.mkIf config.terminalDevEnv.enable {
+
+    rBase = {
+      enable = lib.mkDefault true;
+      rPackages = with pkgs.rPackages; [ lintr languageserver ];
+    };
+
+    pythonBase = {
+      enable = lib.mkDefault true;
+      pythonPackages = with pkgs.python3Packages; [ ];
+    };
+
     yazi.enable = lib.mkDefault true;
     zsh.enable = lib.mkDefault true;
     kitty.enable = lib.mkDefault true;

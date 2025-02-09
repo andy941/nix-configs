@@ -7,22 +7,26 @@
   };
 
   config = lib.mkIf config.dataScienceModules.enable {
-    home.packages = with pkgs; [
-      quarto
-      (python3.withPackages (ps: with ps; [ numpy pandas ]))
-      (rWrapper.override {
-        packages = with rPackages; [
-          lintr
-          languageserver
-          reticulate
-          ggplot2
-          tidyverse
-          ggthemes
-          ggpubr
-          kableExtra
-        ];
-      })
-    ];
+
+    rBase = {
+      enable = lib.mkDefault true;
+      rPackages = with pkgs.rPackages; [
+        reticulate
+        ggplot2
+        tidyverse
+        ggthemes
+        ggpubr
+        kableExtra
+      ];
+    };
+
+    pythonBase = {
+      enable = lib.mkDefault true;
+      pythonPackages = with pkgs.python3Packages; [ pandas numpy ];
+    };
+
+    home.packages = with pkgs; [ quarto ];
+
     neovim.enable = lib.mkDefault true;
   };
 }

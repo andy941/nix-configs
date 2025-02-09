@@ -16,6 +16,7 @@
     hyprpaper.enable = lib.mkDefault true;
     hyprlock.enable = lib.mkDefault true;
     hypridle.enable = lib.mkDefault true;
+    dunst.enable = lib.mkDefault true;
 
     home.packages = with pkgs; [ brightnessctl zathura];
 

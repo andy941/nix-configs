@@ -15,6 +15,9 @@
     ./vlc.nix
     ./rofi.nix
     ./waybar/waybar.nix
+    ./dunst.nix
+    ./rBase.nix
+    ./pythonBase.nix
     ./aggregators
   ];
 }
