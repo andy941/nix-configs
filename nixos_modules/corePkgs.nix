@@ -13,6 +13,8 @@
       clang
       gnumake
       cmake
+      rustc
+      cargo
       coreutils-full
       gparted
       xclip
