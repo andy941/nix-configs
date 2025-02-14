@@ -4,7 +4,6 @@
     ./grub.nix
     ./swapFile.nix
     ./locale.nix
-    ./corePkgs.nix
     ./pipewire.nix
     ./bluetooth.nix
     ./qbittorrent.nix

@@ -1,6 +1,5 @@
 { pkgs, lib, config, stable, ... }: {
   imports = [
-    ./coreUserPkgs.nix
     ./zsh.nix
     ./neovim.nix
     ./git.nix
@@ -16,8 +15,5 @@
     ./rofi.nix
     ./waybar/waybar.nix
     ./dunst.nix
-    ./rBase.nix
-    ./pythonBase.nix
-    ./aggregators
   ];
 }

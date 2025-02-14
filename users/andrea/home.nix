@@ -1,4 +1,4 @@
-{ version, ... }:
+{ pkgs, version, ... }:
 
 {
   home.stateVersion = version;
@@ -16,13 +16,38 @@
   # Enable user modules
 
   # Core
-  coreUserPkgs.enable = true;
+  home.packages = with pkgs; [
+    zip
+    xz
+    unzip
+    p7zip
+    jq
+    which
+    tree
+    gnupg
+    htop
+    bottom
+    wget
+    curl
+    xclip
+  ];
 
-  terminalDevEnv.enable = true;
-  dataScienceModules.enable = true;
+  # Terminal
+  zsh.enable = true;
+  neovim.enable = true;
+  git.enable = true;
+  kitty.enable = true;
+  fzf.enable = true;
+  fonts.enable = true;
+  gh.enable = true;
+  yazi.enable = true;
+  starship.enable = true;
 
-  # Desktop environment
+  # Desktop
   hyprland.enable = true;
   firefox.enable = true;
   vlc.enable = true;
+  rofi.enable = true;
+  waybar.enable = true;
+  dunst.enable = true;
 }

@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, version, ... }:
+{ pkgs, lib, config, inputs, version, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
@@ -24,16 +24,6 @@
 
   # Enable the X11 windowing system for login screen (FIX)
   services.xserver.enable = true;
-  environment.systemPackages = [
-    (pkgs.catppuccin-sddm.override {
-      flavor = "mocha";
-      font = "JetBrainsMono";
-      fontSize = "14";
-      background =
-        "${../../wallpapers/stormtrooper-star-wars-black-background-amoled-3840x2160-8296.png}";
-      loginBackground = true;
-    })
-  ];
 
   services.displayManager.sddm = {
     enable = true;
@@ -57,9 +47,19 @@
   security.polkit.enable = true;
 
   # Enable system modules
+  environment.systemPackages = with pkgs;
+    [ coreutils-full gparted killall pkg-config mlocate ] ++ [
+      (pkgs.catppuccin-sddm.override {
+        flavor = "mocha";
+        font = "JetBrainsMono";
+        fontSize = "14";
+        background =
+          "${../../wallpapers/stormtrooper-star-wars-black-background-amoled-3840x2160-8296.png}";
+        loginBackground = true;
+      })
+    ];
 
   # Core modules and settings
-  corePkgs.enable = true;
   nixSettings.enable = true;
   locale.enable = true;
 
