@@ -44,11 +44,19 @@
     extraGroups = [ "networkmanager" "wheel" "input" ];
   };
 
-  security.polkit.enable = true;
+  # security.polkit.enable = true;
 
   # Enable system modules
   environment.systemPackages = with pkgs;
-    [ coreutils-full gparted killall pkg-config mlocate ] ++ [
+    [
+      hyprpolkitagent
+      coreutils-full
+      gparted
+      killall
+      pkg-config
+      mlocate
+      kdePackages.dolphin
+    ] ++ [
       (pkgs.catppuccin-sddm.override {
         flavor = "mocha";
         font = "JetBrainsMono";
@@ -58,6 +66,8 @@
         loginBackground = true;
       })
     ];
+
+  services.gvfs.enable = true;
 
   # Core modules and settings
   nixSettings.enable = true;

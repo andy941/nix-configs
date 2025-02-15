@@ -15,5 +15,6 @@
     ./rofi.nix
     ./waybar/waybar.nix
     ./dunst.nix
+    ./pass.nix
   ];
 }

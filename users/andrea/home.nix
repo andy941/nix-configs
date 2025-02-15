@@ -50,4 +50,5 @@
   rofi.enable = true;
   waybar.enable = true;
   dunst.enable = true;
+  pass.enable = true;
 }
