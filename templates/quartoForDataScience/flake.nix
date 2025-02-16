@@ -25,7 +25,7 @@
       let
         # Import nixpkgs for the current system
         pkgs = import nixpkgs { inherit system; };
-        pyPkgs = (ps: with ps; [ black pandas numpy matplotlib ]);
+        pyPkgs = (ps: with ps; [ pyright black pandas numpy matplotlib ]);
         rPkgs = (with pkgs.rPackages; [
           languageserver
           styler
@@ -56,9 +56,9 @@
           shellHook = ''
             export RETICULATE_PYTHON=$(which python)
 
-            echo "R:                 ${pkgs.rWrapper}"
-            echo "Python:            ${pkgs.python3}"
-            echo "Reticulate Python: ${pkgs.python3}"
+            echo "R:                       ${pkgs.rWrapper}"
+            echo "Python:                  ${pkgs.python3}"
+            echo "Reticulate's Python:     ${pkgs.python3}"
             echo ""
             echo "Welcome to Quarto for data science!"
           '';
