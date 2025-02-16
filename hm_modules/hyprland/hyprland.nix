@@ -1,11 +1,7 @@
 { pkgs, lib, config, ... }:
 
 {
-  imports = [
-    ./hyprpaper/hyprpaper.nix
-    ./hyprlock.nix
-    ./hypridle.nix
-  ];
+  imports = [ ./hyprpaper/hyprpaper.nix ./hyprlock.nix ./hypridle.nix ];
 
   options = { hyprland.enable = lib.mkEnableOption "enables hyprland"; };
 
@@ -18,7 +14,7 @@
     hypridle.enable = lib.mkDefault true;
     dunst.enable = lib.mkDefault true;
 
-    home.packages = with pkgs; [ brightnessctl zathura];
+    home.packages = with pkgs; [ brightnessctl zathura ];
 
     wayland.windowManager.hyprland = {
       enable = true;
@@ -27,6 +23,7 @@
 
       settings = {
         exec-once = [ "hyprpaper" ];
+        exec = [ "systemctl restart --user hyprpolkitagent" ];
 
         monitor = [
           "eDP-1,highres@highrr,0x0,1,bitdepth,10"
@@ -44,13 +41,13 @@
           "5,monitor:desc:Samsung Electric Company U32J59x HNMW300479"
           "6,monitor:desc:Samsung Electric Company U32J59x HNMW300479"
 
-          "7,monitor:eDP-1,default:true"
+          "7,monitor:eDP-1"
           "8,monitor:eDP-1"
           "9,monitor:eDP-1"
           "0,monitor:eDP-1"
         ];
 
-        "$mod" = "SUPER";
+        "$mod" = "Alt";
 
         general = {
           border_size = 3;
@@ -92,6 +89,7 @@
           "float,.blueman-manager-wrapped"
           "float,org.pulseaudio.pavucontrol"
           "float,nm-connection-editor"
+          "float,GParted"
         ];
 
         bind = [

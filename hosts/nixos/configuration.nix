@@ -44,7 +44,7 @@
     extraGroups = [ "networkmanager" "wheel" "input" ];
   };
 
-  # security.polkit.enable = true;
+  security.polkit.enable = true;
 
   # Enable system modules
   environment.systemPackages = with pkgs;
