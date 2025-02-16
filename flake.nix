@@ -58,4 +58,18 @@
         };
       };
     };
+
+  templates = {
+    quartoForDataScience = {
+      path = ./templates/quartoForDataScience;
+      descritpion = ''
+        Quarto setup for data science allowing the use of both R and Python with Knitr and reticulate.
+
+        Easily compile your work in a website ready to be hosted on services like GitHub Pages.
+      '';
+      welcomeText = ''
+        Welcome to your data science project powered by Quarto!
+      '';
+    };
+  };
 }
