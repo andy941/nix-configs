@@ -85,7 +85,7 @@
   swapFile.enable = true;
   pipewire.enable = true;
   bluetooth.enable = true;
-  plex.enable = true;
+  plex.enable = false;
 
   # Unsafe pkgs
   qbittorrent.enable = true;

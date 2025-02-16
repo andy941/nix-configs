@@ -25,13 +25,17 @@
       let
         # Import nixpkgs for the current system
         pkgs = import nixpkgs { inherit system; };
-        pyPkgs = (ps: with ps; [ black pandas pysam ]);
+        pyPkgs = (ps: with ps; [ black pandas numpy matplotlib ]);
         rPkgs = (with pkgs.rPackages; [
           languageserver
           styler
           ggplot2
           tidyverse
           reticulate
+          ggpubr
+          ggthemes
+          kableExtra
+          plotly
         ]);
 
         prodPackages = with pkgs; [
@@ -49,38 +53,18 @@
 
           packages = prodPackages;
 
-          # 🏗️ System-wide Environment Variables
           shellHook = ''
-            # Runs when the shell starts
-            echo "${pkgs.python3}"
             export RETICULATE_PYTHON=$(which python)
+
+            echo "R:                 ${pkgs.rWrapper}"
+            echo "Python:            ${pkgs.python3}"
+            echo "Reticulate Python: ${pkgs.python3}"
+            echo ""
             echo "Welcome to Quarto for data science!"
-            tree
           '';
 
-          # 🔄 Allow unfree packages (if needed)
+          # Allow unfree packages (by default they are not enabled)
           allowUnfree = false;
-        };
-
-        # Docker image for production shell (no system dependencies)
-        dockerImages.prod = pkgs.dockerTools.buildImage {
-          name = "prod";
-          tag = "latest";
-
-          # Start from a base image, e.g., Alpine
-          # fromImage = "alpine:latest";
-
-          # Copy the production environment into the image
-          copyToRoot = pkgs.buildEnv {
-            name = "prod-env";
-            paths = prodPackages;
-          };
-
-          # Optionally, configure the Docker container (e.g., default command)
-          config = {
-            Cmd = [ "zsh" ];
-            Env = [ "SHELL=/bin/bash" ];
-          };
         };
       });
 }
