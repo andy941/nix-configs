@@ -11,26 +11,17 @@
     enable = true;
     flavor = "mocha";
     nvim.enable = false;
+    gtk.enable = false;
   };
 
   # Enable user modules
 
   # Core
-  home.packages = with pkgs; [
-    zip
-    xz
-    unzip
-    p7zip
-    jq
-    which
-    tree
-    gnupg
-    htop
-    bottom
-    wget
-    curl
-    xclip
-  ];
+  home.packages = with pkgs;
+    [ zip xz unzip p7zip jq which tree gnupg htop bottom wget curl xclip ] ++ [
+      # Desktop
+      pcmanfm
+    ];
 
   # Terminal
   zsh.enable = true;
@@ -42,6 +33,7 @@
   gh.enable = true;
   yazi.enable = true;
   starship.enable = true;
+  direnv.enable = true;
 
   # Desktop
   hyprland.enable = true;
@@ -51,4 +43,5 @@
   waybar.enable = true;
   dunst.enable = true;
   pass.enable = true;
+  gtk-theme.enable = true;
 }

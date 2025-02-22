@@ -16,5 +16,7 @@
     ./waybar/waybar.nix
     ./dunst.nix
     ./pass.nix
+    ./direnv.nix
+    ./gtk-theme.nix
   ];
 }

@@ -62,7 +62,7 @@
       killall
       pkg-config
       mlocate
-      kdePackages.dolphin
+      pcmanfm
     ] ++ [
       (pkgs.catppuccin-sddm.override {
         flavor = "mocha";

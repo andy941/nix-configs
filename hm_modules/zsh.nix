@@ -13,7 +13,8 @@
 
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git-auto-fetch" "gh" "sudo" "colorize" "vi-mode" "pass" ];
+        plugins =
+          [ "git-auto-fetch" "gh" "sudo" "colorize" "vi-mode" "pass" "direnv" ];
       };
 
       shellAliases = { l = "ls -lah"; };

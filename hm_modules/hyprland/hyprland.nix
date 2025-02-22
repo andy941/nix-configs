@@ -72,7 +72,7 @@
 
         input = {
           repeat_rate = 25;
-          repeat_delay = 500;
+          repeat_delay = 400;
           follow_mouse = 2;
           touchpad.natural_scroll = true;
         };

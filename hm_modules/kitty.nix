@@ -8,6 +8,7 @@
       enable = true;
       font = {
         name = "JetBrainsMono NF";
+        package = pkgs.nerd-fonts.jetbrains-mono;
         size = 14;
       };
       shellIntegration = { enableZshIntegration = true; };

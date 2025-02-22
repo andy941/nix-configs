@@ -7,7 +7,6 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      # url = "github:nix-community/home-manager/release-24.11";
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
 
@@ -26,9 +25,10 @@
     inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, catppuccin, ... }:
     let version = "24.11";
     in {
-      nixosConfigurations = {
+      nixosConfigurations = let system = "x86_64-linux";
+      in {
         nixos = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           specialArgs = { inherit version inputs; };
           modules = [
             ./hosts/nixos/configuration.nix
@@ -42,7 +42,7 @@
               home-manager.extraSpecialArgs = {
                 inherit version inputs;
                 unstable = import inputs.nixpkgs-unstable {
-                  system = "x86_64-linux";
+                  inherit system;
                   config.allowUnfree = true;
                 };
               };
