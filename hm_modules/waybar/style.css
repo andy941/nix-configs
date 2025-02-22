@@ -45,6 +45,11 @@
 }
 
 #workspaces button {
+  margin-left: 15px;
+  padding-left: 15px;
+}
+
+#workspaces button {
   color: @lavender;
 }
 

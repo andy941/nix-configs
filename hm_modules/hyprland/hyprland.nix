@@ -57,6 +57,7 @@
           hover_icon_on_border = false;
           extend_border_grab_area = 20;
           gaps_in = 10;
+          gaps_out = "5,20,20,20";
         };
 
         decoration = {
