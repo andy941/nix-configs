@@ -35,13 +35,23 @@
             run = ''vlc "$@"'';
             orphan = true;
           }];
+          pdf = [{
+            run = ''zathura "$@"'';
+            orphan = true;
+          }];
         };
 
         open = {
-          prepend_rules = [{
-            name = "*.mkv";
-            use = "play";
-          }];
+          prepend_rules = [
+            {
+              name = "*.mkv";
+              use = "play";
+            }
+            {
+              name = "*.pdf";
+              use = "pdf";
+            }
+          ];
         };
       };
     };
