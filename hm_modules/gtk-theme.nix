@@ -17,12 +17,12 @@
       };
 
       iconTheme = {
-        name = "adwaita";
+        name = "Adwaita";
         package = pkgs.adwaita-icon-theme;
       };
 
       cursorTheme = {
-        name = "adwaita";
+        name = "Adwaita";
         package = pkgs.adwaita-icon-theme;
       };
     };
