@@ -44,6 +44,10 @@
         open = {
           prepend_rules = [
             {
+              name = "*.mp4";
+              use = "play";
+            }
+            {
               name = "*.mkv";
               use = "play";
             }

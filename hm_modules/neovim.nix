@@ -14,6 +14,7 @@
 
       extraLuaPackages = luaPkgs: with luaPkgs; [ magick ];
       extraPackages = with pkgs; [
+        gcc
         fd
         ripgrep
         lua5_1

@@ -14,7 +14,7 @@
     hypridle.enable = lib.mkDefault true;
     dunst.enable = lib.mkDefault true;
 
-    home.packages = with pkgs; [ brightnessctl zathura ];
+    home.packages = with pkgs; [ brightnessctl zathura adwaita-icon-theme ];
 
     wayland.windowManager.hyprland = {
       enable = true;
@@ -22,13 +22,19 @@
       systemd.variables = [ "--all" ];
 
       settings = {
+        env = [
+          # Get a decent cursor
+          "HYPRCURSOR_THEME,Adwaita"
+          "HYPRCURSOR_SIZE,30"
+        ];
+
         exec-once = [ "hyprpaper" ];
         exec = [ "systemctl restart --user hyprpolkitagent" ];
 
         monitor = [
-          "eDP-1,highres@highrr,0x0,1,bitdepth,10"
-          "desc:Samsung Electric Company U32J59x HNMW300479,highres@highrr,auto-up,1,bitdepth,10"
-          ",highres@highrr,auto-left,1,bitdepth,10"
+          "eDP-1,highres@highrr,0x0,1"
+          "desc:Samsung Electric Company U32J59x HNMW300479,highres@highrr,auto-up,1"
+          ",highres@highrr,auto-left,1"
         ];
 
         workspace = [
@@ -82,7 +88,7 @@
 
         cursor = {
           inactive_timeout = 2;
-          enable_hyprcursor = false;
+          enable_hyprcursor = true;
         };
 
         windowrule = [

@@ -7,9 +7,8 @@
     # Packages that should be installed to the user profile.
     home.packages = with pkgs;
       [
-        # (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-        # FIX: Might change in 25.05
         nerd-fonts.jetbrains-mono
+        # quicksand
       ];
 
     # Enable configuring fonts

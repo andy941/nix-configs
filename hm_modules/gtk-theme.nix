@@ -7,8 +7,9 @@
     gtk = {
       enable = true;
       font = {
-        name = "JetBrainsMono NF";
-        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "Quicksand";
+        size = 14;
+        package = pkgs.quicksand;
       };
 
       theme = {
