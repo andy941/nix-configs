@@ -15,6 +15,7 @@
       extraLuaPackages = luaPkgs: with luaPkgs; [ magick ];
       extraPackages = with pkgs; [
         gcc
+        gnumake
         fd
         ripgrep
         lua5_1

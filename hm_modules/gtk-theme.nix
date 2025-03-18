@@ -4,6 +4,12 @@
   options = { gtk-theme.enable = lib.mkEnableOption "enables gtk-theme"; };
 
   config = lib.mkIf config.gtk-theme.enable {
+    home.pointerCursor = {
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+      size = 30;
+    };
+
     gtk = {
       enable = true;
       font = {

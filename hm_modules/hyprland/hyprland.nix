@@ -26,6 +26,8 @@
           # Get a decent cursor
           "HYPRCURSOR_THEME,Adwaita"
           "HYPRCURSOR_SIZE,30"
+          "XCURSOR_THEME,Adwaita"
+          "XCURSOR_SIZE,30"
         ];
 
         exec-once = [ "hyprpaper" ];
@@ -143,6 +145,8 @@
 
           ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
           ",XF86MonBrightnessUp, exec, brightnessctl s +10%"
+
+          ",XF86PowerOff, exec, hyprlock"
         ];
 
         bindel = [

@@ -8,6 +8,7 @@
     home.packages = with pkgs; [ pavucontrol playerctl wlogout ];
 
     services.network-manager-applet.enable = true;
+    services.blueman-applet.enable = true;
 
     programs.waybar = {
       enable = true;

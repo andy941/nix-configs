@@ -18,7 +18,22 @@
 
   # Core
   home.packages = with pkgs;
-    [ zip xz unzip p7zip jq which tree gnupg htop bottom wget curl xclip ] ++ [
+    [
+      gnumake
+      zip
+      xz
+      unzip
+      p7zip
+      jq
+      which
+      tree
+      gnupg
+      htop
+      bottom
+      wget
+      curl
+      xclip
+    ] ++ [
       # Desktop
       pcmanfm
     ];
