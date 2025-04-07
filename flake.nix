@@ -47,10 +47,8 @@
                 };
               };
               home-manager.users.andrea = {
-                imports = [
-                  ./users/andrea/home.nix
-                  catppuccin.homeManagerModules.catppuccin
-                ];
+                imports =
+                  [ ./users/andrea/home.nix catppuccin.homeModules.catppuccin ];
               };
               home-manager.sharedModules = [ ./hm_modules ];
             }

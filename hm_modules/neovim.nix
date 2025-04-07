@@ -31,6 +31,8 @@
         cmake-language-server
         rustfmt
         rust-analyzer
+        wgsl-analyzer
+        lldb
       ];
     };
   };
