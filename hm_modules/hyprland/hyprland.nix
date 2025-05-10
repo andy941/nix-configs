@@ -99,6 +99,7 @@
           "float,class:org.pulseaudio.pavucontrol"
           "float,class:nm-connection-editor"
           "float,class:GParted"
+          "float,class:flameshot"
           "float,title:float_this"
         ];
 

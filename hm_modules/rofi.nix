@@ -9,7 +9,6 @@
       location = "center";
       extraConfig = {
         modi = "run,drun";
-        # icon-theme = "Oranchelo";
         show-icons = true;
         terminal = "kitty";
         drun-display-format = "{icon} {name}";

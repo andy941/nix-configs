@@ -54,19 +54,21 @@
 }
 
 #workspaces button.active {
-  color: @pink;
+  background: @lavender;
+  color: @crust;
 }
 
 #workspaces button.focused {
-  color: @yellow;
+  background: @yellow;
+  color: @crust;
 }
 
 #workspaces button:hover {
-  background: transparent;
   border: transparent;
   box-shadow: none;
   text-shadow: none;
-  color: @green;
+  background: @green;
+  color: @crust;
 }
 
 #submap,

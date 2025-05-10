@@ -18,5 +18,7 @@
     ./pass.nix
     ./direnv.nix
     ./gtk-theme.nix
+    ./llm-local.nix
+    ./flameshot.nix
   ];
 }

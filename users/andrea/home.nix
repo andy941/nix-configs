@@ -12,9 +12,8 @@
     flavor = "mocha";
     nvim.enable = false;
     gtk.enable = false;
+    rofi.enable = true;
   };
-
-  # Enable user modules
 
   # Core
   home.packages = with pkgs;
@@ -38,7 +37,6 @@
       pcmanfm
     ];
 
-  # Terminal
   zsh.enable = true;
   neovim.enable = true;
   git.enable = true;
@@ -49,6 +47,7 @@
   yazi.enable = true;
   starship.enable = true;
   direnv.enable = true;
+  llm-local.enable = true;
 
   # Desktop
   hyprland.enable = true;
@@ -59,4 +58,5 @@
   dunst.enable = true;
   pass.enable = true;
   gtk-theme.enable = true;
+  flameshot.enable = true;
 }

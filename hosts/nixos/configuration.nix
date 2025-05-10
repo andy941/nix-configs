@@ -78,6 +78,9 @@
 
   services.gvfs.enable = true;
 
+  # Local LLM
+  services.open-webui.enable = true;
+
   # Core modules and settings
   nixSettings.enable = true;
   locale.enable = true;
@@ -87,7 +90,7 @@
   swapFile.enable = true;
   pipewire.enable = true;
   bluetooth.enable = true;
-  plex.enable = false;
+  plex.enable = true;
 
   # Unsafe pkgs
   qbittorrent.enable = true;

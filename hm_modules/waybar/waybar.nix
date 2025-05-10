@@ -39,8 +39,7 @@
         "hyprland/workspaces" = {
           disable-scroll = true;
           sort-by-name = true;
-          format = "{icon}";
-          format-icons = { default = ""; };
+          format = "{name}";
         };
 
         "hyprland/submap" = {
