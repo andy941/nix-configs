@@ -33,6 +33,8 @@
         rust-analyzer
         wgsl-analyzer
         lldb
+        tree-sitter
+        nodejs
       ];
     };
   };
