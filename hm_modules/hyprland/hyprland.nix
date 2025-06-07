@@ -40,19 +40,17 @@
         ];
 
         workspace = [
-          ",persistent:false"
-
-          "1,monitor:desc:Samsung Electric Company U32J59x HNMW300479,default:true"
+          "1,persistent:true,monitor:desc:Samsung Electric Company U32J59x HNMW300479,default:true"
           "2,monitor:desc:Samsung Electric Company U32J59x HNMW300479"
           "3,monitor:desc:Samsung Electric Company U32J59x HNMW300479"
           "4,monitor:desc:Samsung Electric Company U32J59x HNMW300479"
           "5,monitor:desc:Samsung Electric Company U32J59x HNMW300479"
           "6,monitor:desc:Samsung Electric Company U32J59x HNMW300479"
 
-          "7,monitor:eDP-1"
-          "8,monitor:eDP-1"
-          "9,monitor:eDP-1"
-          "0,monitor:eDP-1"
+          "7,persistent:true,monitor:desc:Sharp Corporation 0x1449"
+          "8,monitor:desc:Sharp Corporation 0x1449"
+          "9,monitor:desc:Sharp Corporation 0x1449"
+          "0,monitor:desc:Sharp Corporation 0x1449"
         ];
 
         "$mod" = "Alt";
