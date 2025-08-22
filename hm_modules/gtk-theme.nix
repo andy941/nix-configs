@@ -23,10 +23,10 @@
         package = pkgs.magnetic-catppuccin-gtk;
       };
 
-      iconTheme = {
-        name = "Adwaita";
-        package = pkgs.adwaita-icon-theme;
-      };
+      # iconTheme = {
+      #   name = "Adwaita";
+      #   package = pkgs.adwaita-icon-theme;
+      # };
 
       cursorTheme = {
         name = "Adwaita";

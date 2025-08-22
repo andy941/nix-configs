@@ -19,7 +19,7 @@
 
       shellAliases = { l = "ls -lah"; };
 
-      initExtra =
+      initContent =
         # File browser Yazi, when closing it changes directory (use `Q` if don't want to)
         ''
           function ff() {

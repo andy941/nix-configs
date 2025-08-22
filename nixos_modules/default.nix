@@ -8,5 +8,6 @@
     ./bluetooth.nix
     ./qbittorrent.nix
     ./plex.nix
+    ./syncthing.nix
   ];
 }

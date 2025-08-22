@@ -9,7 +9,18 @@
 
   networking = {
     hostName = "nixos";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      plugins = with pkgs; [
+        networkmanager-fortisslvpn
+        networkmanager-iodine
+        networkmanager-l2tp
+        networkmanager-openconnect
+        networkmanager-openvpn
+        networkmanager-vpnc
+        networkmanager-sstp
+      ];
+    };
 
     # Avoid DNS leaks with Surfshark
     nameservers = [ "162.252.172.57" "149.154.159.92" ];
@@ -79,7 +90,7 @@
   services.gvfs.enable = true;
 
   # Local LLM
-  services.open-webui.enable = true;
+  services.open-webui.enable = false;
 
   # Core modules and settings
   nixSettings.enable = true;
@@ -90,7 +101,10 @@
   swapFile.enable = true;
   pipewire.enable = true;
   bluetooth.enable = true;
+
+  # Server
   plex.enable = true;
+  syncthing.enable = true;
 
   # Unsafe pkgs
   qbittorrent.enable = true;

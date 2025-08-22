@@ -56,6 +56,7 @@
         "$mod" = "Alt";
 
         general = {
+          layout = "master";
           border_size = 3;
           resize_on_border = true;
           no_focus_fallback = true;
@@ -89,6 +90,10 @@
         cursor = {
           inactive_timeout = 2;
           enable_hyprcursor = true;
+        };
+
+        render = {
+          new_render_scheduling = true;
         };
 
         windowrule = [

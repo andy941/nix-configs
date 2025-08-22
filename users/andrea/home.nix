@@ -11,7 +11,6 @@
     enable = true;
     flavor = "mocha";
     nvim.enable = false;
-    gtk.enable = false;
     rofi.enable = true;
   };
 
@@ -29,6 +28,7 @@
       gnupg
       htop
       bottom
+      btop
       wget
       curl
       xclip
