@@ -24,7 +24,7 @@
       };
 
       settings = {
-        manager = {
+        mgr = {
           sort_by = "alphabetical";
           sort_dir_first = true;
           linemode = "size";
