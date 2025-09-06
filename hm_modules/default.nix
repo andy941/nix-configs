@@ -20,5 +20,6 @@
     ./gtk-theme.nix
     ./llm-local.nix
     ./flameshot.nix
+    ./opencode.nix
   ];
 }

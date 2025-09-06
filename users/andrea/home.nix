@@ -48,6 +48,7 @@
   starship.enable = true;
   direnv.enable = true;
   llm-local.enable = true;
+  opencode.enable = true;
 
   # Desktop
   hyprland.enable = true;
