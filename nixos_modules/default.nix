@@ -9,5 +9,6 @@
     ./qbittorrent.nix
     ./plex.nix
     ./syncthing.nix
+    ./discord.nix
   ];
 }

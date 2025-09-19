@@ -36,6 +36,7 @@
         monitor = [
           "eDP-1,highres@highrr,0x0,1"
           "desc:Samsung Electric Company U32J59x HNMW300479,highres@highrr,auto-up,1"
+          # "desc:Samsung Electric Company U32J59x HNMW300479,1920x1080,auto-up,1"
           ",highres@highrr,auto-left,1"
         ];
 

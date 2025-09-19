@@ -76,6 +76,7 @@
       pkg-config
       mlocate
       pcmanfm
+      lsof
     ] ++ [
       (pkgs.catppuccin-sddm.override {
         flavor = "mocha";
@@ -103,9 +104,12 @@
   bluetooth.enable = true;
 
   # Server
-  plex.enable = true;
+  plex.enable = false;
   syncthing.enable = true;
 
   # Unsafe pkgs
   qbittorrent.enable = true;
+
+  # Unfree pkgs
+  discord.enable = true;
 }
