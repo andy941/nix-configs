@@ -17,7 +17,7 @@
       plugins = { mount = "${plugins-repo}/mount.yazi"; };
 
       keymap = {
-        manager.prepend_keymap = [{
+        mgr.prepend_keymap = [{
           on = "M";
           run = "plugin mount";
         }];
