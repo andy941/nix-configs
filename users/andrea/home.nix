@@ -35,6 +35,7 @@
     ] ++ [
       # Desktop
       pcmanfm
+      darktable
     ];
 
   zsh.enable = true;
