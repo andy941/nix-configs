@@ -36,6 +36,7 @@
       # Desktop
       pcmanfm
       darktable
+      shotwell
     ];
 
   zsh.enable = true;
