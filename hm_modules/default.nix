@@ -21,5 +21,6 @@
     ./llm-local.nix
     ./flameshot.nix
     ./opencode.nix
+    ./feh.nix
   ];
 }

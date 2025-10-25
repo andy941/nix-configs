@@ -99,6 +99,7 @@
 
         windowrule = [
           "float,class:Rofi"
+          "float,class:feh"
           "float,class:.blueman-manager-wrapped"
           "float,class:org.pulseaudio.pavucontrol"
           "float,class:nm-connection-editor"

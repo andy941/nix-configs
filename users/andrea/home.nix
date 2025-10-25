@@ -62,4 +62,5 @@
   pass.enable = true;
   gtk-theme.enable = true;
   flameshot.enable = true;
+  feh.enable = true;
 }

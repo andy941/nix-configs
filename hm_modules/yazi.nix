@@ -30,6 +30,11 @@
           linemode = "size";
         };
 
+        tasks = {
+          image_bound = [0 0];
+        };
+
+
         opener = {
           play = [{
             run = ''vlc "$@"'';
