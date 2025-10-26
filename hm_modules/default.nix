@@ -22,5 +22,6 @@
     ./flameshot.nix
     ./opencode.nix
     ./feh.nix
+    ./github-copilot-cli.nix
   ];
 }

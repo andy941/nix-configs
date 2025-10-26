@@ -8,7 +8,6 @@
     home.packages = with pkgs;
       [
         nerd-fonts.jetbrains-mono
-        # quicksand
       ];
 
     # Enable configuring fonts

@@ -51,6 +51,7 @@
   direnv.enable = true;
   llm-local.enable = true;
   opencode.enable = true;
+  github-copilot-cli.enable = true;
 
   # Desktop
   hyprland.enable = true;
