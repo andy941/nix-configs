@@ -79,6 +79,34 @@
           };
         };
 
+        animations = {
+          enabled = true;
+          bezier = [
+            "easeOutQuint,0.23,1,0.32,1"
+            "easeInOutCubic,0.65,0.05,0.36,1"
+            "linear,0,0,1,1"
+            "almostLinear,0.5,0.5,0.75,1.0"
+            "quick,0.15,0,0.12,1"
+          ];
+
+          animation = [
+            "global, 1, 2, quick"
+            "windows, 1, 2, easeOutQuint, slide"
+            "windowsIn, 1, 2, easeOutQuint, popin"
+            "windowsOut, 1, 2, quick, popin"
+            "windowsMove, 1, 2, quick, slide"
+            "fadeIn, 1, 2, easeOutQuint"
+            "fadeOut, 1, 2, quick"
+            "fadeSwitch, 1, 2, easeOutQuint"
+            "fadeShadow, 1, 2, easeOutQuint"
+            "fadeDim, 1, 2, easeOutQuint"
+            "border, 1, 1, easeOutQuint"
+            "borderangle, 1, 1, easeOutQuint"
+            "workspaces, 1, 2, easeOutQuint, slide"
+            "layers, 1, 2, easeOutQuint, slide"
+          ];
+        };
+
         input = {
           repeat_rate = 25;
           repeat_delay = 400;
@@ -93,9 +121,7 @@
           enable_hyprcursor = true;
         };
 
-        render = {
-          new_render_scheduling = true;
-        };
+        render = { new_render_scheduling = true; };
 
         windowrule = [
           "float,class:Rofi"
