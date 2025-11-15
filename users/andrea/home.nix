@@ -52,6 +52,8 @@
   llm-local.enable = true;
   opencode.enable = true;
   github-copilot-cli.enable = true;
+  gemini-cli.enable = true;
+  tmux.enable = true;
 
   # Desktop
   hyprland.enable = true;

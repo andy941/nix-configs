@@ -23,5 +23,7 @@
     ./opencode.nix
     ./feh.nix
     ./github-copilot-cli.nix
+    ./gemini-cli.nix
+    ./tmux.nix
   ];
 }

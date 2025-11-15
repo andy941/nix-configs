@@ -9,17 +9,18 @@
 
       settings = {
         general = {
-          lock_cmd = "hyprlock";
-
+          lock_cmd = "pidof hyprlock || hyprlock";
+          unlock_cmd = "notify-send 'unlock!'";
+          
           inhibit_sleep = 1;
-          before_sleep_cmd = "hyprlock";
-          after_sleep_cmd = "hyprctl dispatch dpms on";
+          before_sleep_cmd = "loginctl lock-session";
+          after_sleep_cmd = "sleep 2 && hyprctl dispatch dpms on";
         };
 
         listener = [
           {
             timeout = 900;
-            on-timeout = "hyprlock";
+            on-timeout = "loginctl lock-session";
           }
           {
             timeout = 1200;
