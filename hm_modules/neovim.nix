@@ -35,6 +35,12 @@
         lldb
         tree-sitter
         nodejs
+
+        # snacks.image
+        imagemagick
+        ghostscript
+        tectonic
+        mermaid-cli
       ];
     };
   };
