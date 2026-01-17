@@ -39,7 +39,7 @@
 
   services.displayManager.sddm = {
     enable = true;
-    theme = "catppuccin-mocha";
+    theme = "catppuccin-mocha-mauve";
     package = pkgs.kdePackages.sddm;
     wayland.enable = true;
   };
@@ -80,6 +80,7 @@
     ] ++ [
       (pkgs.catppuccin-sddm.override {
         flavor = "mocha";
+        accent = "mauve";
         font = "JetBrainsMono";
         fontSize = "14";
         background =
