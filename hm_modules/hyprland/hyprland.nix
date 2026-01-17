@@ -125,14 +125,14 @@
         render = { new_render_scheduling = true; };
 
         windowrule = [
-          "float,class:Rofi"
-          "float,class:feh"
-          "float,class:.blueman-manager-wrapped"
-          "float,class:org.pulseaudio.pavucontrol"
-          "float,class:nm-connection-editor"
-          "float,class:GParted"
-          "float,class:flameshot"
-          "float,title:float_this"
+          "match:class Rofi, float on"
+          "match:class feh, float on"
+          "match:class .blueman-manager-wrapped, float on"
+          "match:class org.pulseaudio.pavucontrol, float on"
+          "match:class nm-connection-editor, float on"
+          "match:class GParted, float on"
+          "match:class flameshot, float on"
+          "match:title float_this, float on"
         ];
 
         bind = [

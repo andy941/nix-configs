@@ -20,7 +20,7 @@
         ripgrep
         lua5_1
         luarocks
-        nixfmt-classic
+        nixfmt
         nil
         stylua
         pyright

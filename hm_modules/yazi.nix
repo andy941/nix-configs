@@ -30,10 +30,7 @@
           linemode = "size";
         };
 
-        tasks = {
-          image_bound = [0 0];
-        };
-
+        tasks = { image_bound = [ 0 0 ]; };
 
         opener = {
           play = [{
