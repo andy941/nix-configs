@@ -21,8 +21,7 @@
         margin-bottom = 0;
         padding-bottom = 0;
 
-        modules-left =
-          [ "hyprland/workspaces" "hyprland/submap" "custom/music" ];
+        modules-left = [ "hyprland/workspaces" "hyprland/submap" ];
         modules-center = [ ];
         modules-right = [
           "cpu"
