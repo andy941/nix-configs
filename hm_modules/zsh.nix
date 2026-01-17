@@ -1,7 +1,15 @@
-{ pkgs, lib, config, osConfig, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  osConfig,
+  ...
+}:
 
 {
-  options = { zsh.enable = lib.mkEnableOption "enables zsh configuration"; };
+  options = {
+    zsh.enable = lib.mkEnableOption "enables zsh configuration";
+  };
 
   config = lib.mkIf config.zsh.enable {
     programs.zsh = {
@@ -13,11 +21,20 @@
 
       oh-my-zsh = {
         enable = true;
-        plugins =
-          [ "git-auto-fetch" "gh" "sudo" "colorize" "vi-mode" "pass" "direnv" ];
+        plugins = [
+          "git-auto-fetch"
+          "gh"
+          "sudo"
+          "colorize"
+          "vi-mode"
+          "pass"
+          "direnv"
+        ];
       };
 
-      shellAliases = { l = "ls -lah"; };
+      shellAliases = {
+        l = "ls -lah";
+      };
 
       initContent =
         # File browser Yazi, when closing it changes directory (use `Q` if don't want to)

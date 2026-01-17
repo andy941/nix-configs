@@ -1,7 +1,15 @@
-{ pkgs, lib, config, inputs, version, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  version,
+  ...
+}:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -23,7 +31,10 @@
     };
 
     # Avoid DNS leaks with Surfshark
-    nameservers = [ "162.252.172.57" "149.154.159.92" ];
+    nameservers = [
+      "162.252.172.57"
+      "149.154.159.92"
+    ];
   };
 
   # Set your time zone.
@@ -31,8 +42,7 @@
 
   programs.hyprland = {
     enable = true;
-    package =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage =
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
@@ -54,7 +64,11 @@
   users.users.andrea = {
     isNormalUser = true;
     description = "Andrea Finocchio";
-    extraGroups = [ "networkmanager" "wheel" "input" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+    ];
   };
 
   security.polkit.enable = true;
@@ -63,11 +77,14 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    settings = { default-cache-ttl = 600; };
+    settings = {
+      default-cache-ttl = 600;
+    };
   };
 
   # Enable system modules
-  environment.systemPackages = with pkgs;
+  environment.systemPackages =
+    with pkgs;
     [
       hyprpolkitagent
       coreutils-full
@@ -77,14 +94,16 @@
       mlocate
       pcmanfm
       lsof
-    ] ++ [
+    ]
+    ++ [
       (pkgs.catppuccin-sddm.override {
         flavor = "mocha";
         accent = "mauve";
         font = "JetBrainsMono";
         fontSize = "14";
-        background =
-          "${../../wallpapers/stormtrooper-star-wars-black-background-amoled-3840x2160-8296.png}";
+        background = "${
+          ../../wallpapers/stormtrooper-star-wars-black-background-amoled-3840x2160-8296.png
+        }";
         loginBackground = true;
       })
     ];

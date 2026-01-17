@@ -1,65 +1,87 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
-  options = { yazi.enable = lib.mkEnableOption "enables yazi"; };
+  options = {
+    yazi.enable = lib.mkEnableOption "enables yazi";
+  };
 
-  config = let
-    plugins-repo = pkgs.fetchFromGitHub {
-      owner = "yazi-rs";
-      repo = "plugins";
-      rev = "master";
-      hash = "sha256-enIt79UvQnKJalBtzSEdUkjNHjNJuKUWC4L6QFb3Ou4=";
-    };
-
-  in lib.mkIf config.yazi.enable {
-    programs.yazi = {
-      enable = true;
-      plugins = { mount = "${plugins-repo}/mount.yazi"; };
-
-      keymap = {
-        mgr.prepend_keymap = [{
-          on = "M";
-          run = "plugin mount";
-        }];
+  config =
+    let
+      plugins-repo = pkgs.fetchFromGitHub {
+        owner = "yazi-rs";
+        repo = "plugins";
+        rev = "master";
+        hash = "sha256-enIt79UvQnKJalBtzSEdUkjNHjNJuKUWC4L6QFb3Ou4=";
       };
 
-      settings = {
-        mgr = {
-          sort_by = "alphabetical";
-          sort_dir_first = true;
-          linemode = "size";
+    in
+    lib.mkIf config.yazi.enable {
+      programs.yazi = {
+        enable = true;
+        plugins = {
+          mount = "${plugins-repo}/mount.yazi";
         };
 
-        tasks = { image_bound = [ 0 0 ]; };
-
-        opener = {
-          play = [{
-            run = ''vlc "$@"'';
-            orphan = true;
-          }];
-          pdf = [{
-            run = ''zathura "$@"'';
-            orphan = true;
-          }];
-        };
-
-        open = {
-          prepend_rules = [
+        keymap = {
+          mgr.prepend_keymap = [
             {
-              name = "*.mp4";
-              use = "play";
-            }
-            {
-              name = "*.mkv";
-              use = "play";
-            }
-            {
-              name = "*.pdf";
-              use = "pdf";
+              on = "M";
+              run = "plugin mount";
             }
           ];
         };
+
+        settings = {
+          mgr = {
+            sort_by = "alphabetical";
+            sort_dir_first = true;
+            linemode = "size";
+          };
+
+          tasks = {
+            image_bound = [
+              0
+              0
+            ];
+          };
+
+          opener = {
+            play = [
+              {
+                run = ''vlc "$@"'';
+                orphan = true;
+              }
+            ];
+            pdf = [
+              {
+                run = ''zathura "$@"'';
+                orphan = true;
+              }
+            ];
+          };
+
+          open = {
+            prepend_rules = [
+              {
+                name = "*.mp4";
+                use = "play";
+              }
+              {
+                name = "*.mkv";
+                use = "play";
+              }
+              {
+                name = "*.pdf";
+                use = "pdf";
+              }
+            ];
+          };
+        };
       };
     };
-  };
 }

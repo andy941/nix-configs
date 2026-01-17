@@ -1,7 +1,14 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
-  options = { direnv.enable = lib.mkEnableOption "enables direnv"; };
+  options = {
+    direnv.enable = lib.mkEnableOption "enables direnv";
+  };
 
   config = lib.mkIf config.direnv.enable {
     programs = {

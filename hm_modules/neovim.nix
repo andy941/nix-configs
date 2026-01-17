@@ -1,7 +1,15 @@
-{ pkgs, lib, config, unstable, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  unstable,
+  ...
+}:
 
 {
-  options = { neovim.enable = lib.mkEnableOption "enables neovim"; };
+  options = {
+    neovim.enable = lib.mkEnableOption "enables neovim";
+  };
 
   config = lib.mkIf config.neovim.enable {
     programs.neovim = {

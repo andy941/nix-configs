@@ -1,7 +1,14 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
-  options = { gtk-theme.enable = lib.mkEnableOption "enables gtk-theme"; };
+  options = {
+    gtk-theme.enable = lib.mkEnableOption "enables gtk-theme";
+  };
 
   config = lib.mkIf config.gtk-theme.enable {
     home.pointerCursor = {

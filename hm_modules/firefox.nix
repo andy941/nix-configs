@@ -1,14 +1,23 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
-  options = { firefox.enable = lib.mkEnableOption "enables firefox"; };
+  options = {
+    firefox.enable = lib.mkEnableOption "enables firefox";
+  };
 
   config = lib.mkIf config.firefox.enable {
     programs.firefox = {
       enable = true;
       profiles.andrea = {
         extensions.force = true;
-        settings = { "general.smoothScroll.msdPhysics.enabled" = true; };
+        settings = {
+          "general.smoothScroll.msdPhysics.enabled" = true;
+        };
       };
     };
   };

@@ -7,6 +7,15 @@
   home.username = "andrea";
   home.homeDirectory = "/home/andrea";
 
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "image/jpeg" = "swayimg.desktop";
+      "image/png" = "swayimg.desktop";
+      "image/tiff" = "swayimg.desktop";
+    };
+  };
+
   catppuccin = {
     enable = true;
     flavor = "mocha";
@@ -15,7 +24,8 @@
   };
 
   # Core
-  home.packages = with pkgs;
+  home.packages =
+    with pkgs;
     [
       gnumake
       zip
@@ -32,7 +42,8 @@
       wget
       curl
       xclip
-    ] ++ [
+    ]
+    ++ [
       # Desktop
       pcmanfm
       darktable
@@ -65,5 +76,5 @@
   pass.enable = true;
   gtk-theme.enable = true;
   flameshot.enable = true;
-  feh.enable = true;
+  swayimg.enable = true;
 }

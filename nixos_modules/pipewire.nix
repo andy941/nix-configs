@@ -1,7 +1,14 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
-  options = { pipewire.enable = lib.mkEnableOption "enables pipewire"; };
+  options = {
+    pipewire.enable = lib.mkEnableOption "enables pipewire";
+  };
 
   config = lib.mkIf config.pipewire.enable {
     services.pulseaudio.enable = false;

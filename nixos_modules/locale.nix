@@ -1,7 +1,14 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
-  options = { locale.enable = lib.mkEnableOption "enables locale"; };
+  options = {
+    locale.enable = lib.mkEnableOption "enables locale";
+  };
 
   config = lib.mkIf config.locale.enable {
     i18n = {

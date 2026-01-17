@@ -1,9 +1,20 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
-  imports = [ ./hyprpaper/hyprpaper.nix ./hyprlock.nix ./hypridle.nix ];
+  imports = [
+    ./hyprpaper/hyprpaper.nix
+    ./hyprlock.nix
+    ./hypridle.nix
+  ];
 
-  options = { hyprland.enable = lib.mkEnableOption "enables hyprland"; };
+  options = {
+    hyprland.enable = lib.mkEnableOption "enables hyprland";
+  };
 
   config = lib.mkIf config.hyprland.enable {
 
@@ -14,7 +25,11 @@
     hypridle.enable = lib.mkDefault true;
     dunst.enable = lib.mkDefault true;
 
-    home.packages = with pkgs; [ brightnessctl zathura adwaita-icon-theme ];
+    home.packages = with pkgs; [
+      brightnessctl
+      zathura
+      adwaita-icon-theme
+    ];
 
     wayland.windowManager.hyprland = {
       enable = true;
@@ -115,14 +130,18 @@
           touchpad.natural_scroll = true;
         };
 
-        binds = { workspace_center_on = 1; };
+        binds = {
+          workspace_center_on = 1;
+        };
 
         cursor = {
           inactive_timeout = 2;
           enable_hyprcursor = true;
         };
 
-        render = { new_render_scheduling = true; };
+        render = {
+          new_render_scheduling = true;
+        };
 
         windowrule = [
           "match:class Rofi, float on"
@@ -197,18 +216,20 @@
         bindm = [ "$mod, mouse:272, movewindow" ];
       };
 
-      extraConfig = lib.concatStrings [''
-        # window resize
-        bind = $mod, r, submap, resize
+      extraConfig = lib.concatStrings [
+        ''
+          # window resize
+          bind = $mod, r, submap, resize
 
-        submap = resize
-        binde = , l, resizeactive, 10 0
-        binde = , h, resizeactive, -10 0
-        binde = , k, resizeactive, 0 -10
-        binde = , j, resizeactive, 0 10
-        bind = , escape, submap, reset
-        submap = reset
-      ''];
+          submap = resize
+          binde = , l, resizeactive, 10 0
+          binde = , h, resizeactive, -10 0
+          binde = , k, resizeactive, 0 -10
+          binde = , j, resizeactive, 0 10
+          bind = , escape, submap, reset
+          submap = reset
+        ''
+      ];
     };
   };
 }

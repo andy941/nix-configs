@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   options = {
@@ -7,7 +12,10 @@
 
   config = lib.mkIf config.nixSettings.enable {
     nix = {
-      settings.experimental-features = [ "nix-command" "flakes" ];
+      settings.experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
 
       # Perform garbage collection weekly to maintain low disk usage
       gc = {

@@ -1,4 +1,11 @@
-{ pkgs, lib, config, stable, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  stable,
+  ...
+}:
+{
   imports = [
     ./zsh.nix
     ./neovim.nix
@@ -21,7 +28,7 @@
     ./llm-local.nix
     ./flameshot.nix
     ./opencode.nix
-    ./feh.nix
+    ./swayimg.nix
     ./github-copilot-cli.nix
     ./gemini-cli.nix
     ./tmux.nix

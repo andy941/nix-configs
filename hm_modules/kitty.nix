@@ -1,7 +1,14 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
-  options = { kitty.enable = lib.mkEnableOption "enables kitty"; };
+  options = {
+    kitty.enable = lib.mkEnableOption "enables kitty";
+  };
 
   config = lib.mkIf config.kitty.enable {
     programs.kitty = {
@@ -11,7 +18,9 @@
         package = pkgs.nerd-fonts.jetbrains-mono;
         size = 14;
       };
-      shellIntegration = { enableZshIntegration = true; };
+      shellIntegration = {
+        enableZshIntegration = true;
+      };
       settings = {
         confirm_os_window_close = 0;
         enable_audio_bell = 0;
@@ -27,8 +36,7 @@
         tab_bar_edge = "bottom";
         tab_bar_style = "powerline";
         tab_powerline_style = "slanted";
-        tab_title_template =
-          "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
+        tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
 
         background_opacity = "0.9";
         background_blur = 50;

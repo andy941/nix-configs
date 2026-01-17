@@ -1,7 +1,14 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
-  options = { grub.enable = lib.mkEnableOption "enables grub"; };
+  options = {
+    grub.enable = lib.mkEnableOption "enables grub";
+  };
 
   config = lib.mkIf config.grub.enable {
     boot.loader = {

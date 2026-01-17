@@ -1,7 +1,14 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
-  options = { plex.enable = lib.mkEnableOption "enables plex"; };
+  options = {
+    plex.enable = lib.mkEnableOption "enables plex";
+  };
 
   config = lib.mkIf config.plex.enable {
     services.plex = {
