@@ -38,8 +38,8 @@
         tab_powerline_style = "slanted";
         tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
 
-        background_opacity = "0.9";
-        background_blur = 50;
+        # background_opacity = "0.9";
+        # background_blur = 50;
       };
 
       keybindings = {
