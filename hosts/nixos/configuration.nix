@@ -125,6 +125,7 @@
 
   # Server
   plex.enable = false;
+  jellyfin.enable = true;
   syncthing.enable = true;
 
   # Unsafe pkgs

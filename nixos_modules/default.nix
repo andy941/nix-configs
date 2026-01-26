@@ -11,5 +11,6 @@
     ./plex.nix
     ./syncthing.nix
     ./discord.nix
+    ./jellyfin.nix
   ];
 }

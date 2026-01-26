@@ -28,27 +28,33 @@
         ripgrep
         lua5_1
         luarocks
-        nixfmt
-        nil
-        stylua
-        pyright
-        cbfmt
-        lua-language-server
-        marksman
-        clang-tools
-        cmake-language-server
-        rustfmt
-        rust-analyzer
-        wgsl-analyzer
         lldb
         tree-sitter
         nodejs
+
+        # LSPs
+        rust-analyzer
+        wgsl-analyzer
+        cmake-language-server
+        clang-tools
+        lua-language-server
+        pyright
+        marksman
+        nil
 
         # snacks.image
         imagemagick
         ghostscript
         tectonic
         mermaid-cli
+
+        # formatters
+        black
+        yapf
+        rustfmt
+        nixfmt
+        stylua
+        cbfmt
       ];
     };
   };

@@ -19,6 +19,9 @@
           name = "Andrea Finocchio";
           email = "finocchio.andrea94@gmail.com";
         };
+        checkout = {
+          defaultRemote = "origin";
+        };
       };
     };
   };
