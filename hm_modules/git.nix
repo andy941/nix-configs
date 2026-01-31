@@ -22,6 +22,9 @@
         checkout = {
           defaultRemote = "origin";
         };
+        pull = {
+          rebase = false;
+        };
       };
     };
   };
