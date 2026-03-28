@@ -40,6 +40,8 @@
 
         # background_opacity = "0.9";
         # background_blur = 50;
+
+        enable_extended_keyboard = "yes";
       };
 
       keybindings = {
@@ -47,6 +49,10 @@
         "alt+shift+t" = "kitten themes --reload=all Catppuccin-Latte";
         "cmd+t" = "discard_event";
         "cmd+enter" = "discard_event";
+
+        # Send CSI u sequences for keys that tmux can't receive via modifyOtherKeys
+        # (workaround for tmux not supporting the Kitty keyboard protocol)
+        "ctrl+." = "send_text all \\x1b[46;5u";
       };
     };
   };

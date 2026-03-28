@@ -16,11 +16,16 @@
       keyMode = "vi";
       shortcut = "a";
       customPaneNavigationAndResize = true;
+      terminal = "xterm-256color";
       extraConfig = ''
         set-option -g status-position top
+        set -g xterm-keys on
+        set -g allow-passthrough on
+        set -s extended-keys on
+        set -as terminal-features 'xterm-kitty:extkeys'
+        set -as terminal-features 'xterm-256color:extkeys'
       '';
       plugins = with pkgs; [
-        tmuxPlugins.cpu
         {
           plugin = tmuxPlugins.resurrect;
           extraConfig = ''
