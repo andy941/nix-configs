@@ -26,6 +26,7 @@
         set -as terminal-features 'xterm-256color:extkeys'
       '';
       plugins = with pkgs; [
+        tmuxPlugins.cpu
         {
           plugin = tmuxPlugins.resurrect;
           extraConfig = ''
