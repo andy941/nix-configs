@@ -18,9 +18,8 @@
 
   catppuccin = {
     enable = true;
-    flavor = "mocha";
+    autoEnable = true;
     nvim.enable = false;
-    rofi.enable = true;
   };
 
   # Core
@@ -63,7 +62,7 @@
   llm-local.enable = true;
   opencode.enable = true;
   github-copilot-cli.enable = true;
-  gemini-cli.enable = true;
+  antigravity-cli.enable = true;
   tmux.enable = true;
 
   # Desktop

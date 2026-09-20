@@ -2,7 +2,6 @@
   pkgs,
   lib,
   config,
-  unstable,
   ...
 }:
 
@@ -28,7 +27,7 @@
     home.packages =
       with pkgs;
       [
-        unstable.neovim-unwrapped # Ensure neovim itself is installed
+        neovim-unwrapped # Ensure neovim itself is installed
 
         # LSPs
         rust-analyzer

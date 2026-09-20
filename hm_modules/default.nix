@@ -30,7 +30,7 @@
     ./opencode.nix
     ./swayimg.nix
     ./github-copilot-cli.nix
-    ./gemini-cli.nix
+    ./antigravity-cli.nix
     ./tmux.nix
   ];
 }

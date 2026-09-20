@@ -47,9 +47,21 @@
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
+  catppuccin = {
+    enable = true;
+    autoEnable = true;
+    sddm = {
+      font = "JetBrainsMono";
+      fontSize = "14";
+      background = "${
+        ../../wallpapers/stormtrooper-star-wars-black-background-amoled-3840x2160-8296.png
+      }";
+      loginBackground = true;
+    };
+  };
+
   services.displayManager.sddm = {
     enable = true;
-    theme = "catppuccin-mocha-mauve";
     package = pkgs.kdePackages.sddm;
     wayland.enable = true;
   };
@@ -83,30 +95,16 @@
   };
 
   # Enable system modules
-  environment.systemPackages =
-    with pkgs;
-    [
-      hyprpolkitagent
-      coreutils-full
-      gparted
-      killall
-      pkg-config
-      mlocate
-      pcmanfm
-      lsof
-    ]
-    ++ [
-      (pkgs.catppuccin-sddm.override {
-        flavor = "mocha";
-        accent = "mauve";
-        font = "JetBrainsMono";
-        fontSize = "14";
-        background = "${
-          ../../wallpapers/stormtrooper-star-wars-black-background-amoled-3840x2160-8296.png
-        }";
-        loginBackground = true;
-      })
-    ];
+  environment.systemPackages = with pkgs; [
+    hyprpolkitagent
+    coreutils-full
+    gparted
+    killall
+    pkg-config
+    mlocate
+    pcmanfm
+    lsof
+  ];
 
   services.gvfs.enable = true;
 

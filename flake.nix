@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-26.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -23,7 +23,7 @@
     inputs@{
       self,
       nixpkgs,
-      nixpkgs-unstable,
+      nixpkgs-stable,
       home-manager,
       catppuccin,
       ...
@@ -51,7 +51,7 @@
                 home-manager.backupFileExtension = ".hm.bk";
                 home-manager.extraSpecialArgs = {
                   inherit version inputs;
-                  unstable = import inputs.nixpkgs-unstable {
+                  stable = import inputs.nixpkgs-stable {
                     inherit system;
                     config.allowUnfree = true;
                   };
@@ -67,19 +67,5 @@
             ];
           };
         };
-
-      templates = {
-        quartoForDataScience = {
-          path = ./templates/quartoForDataScience;
-          descritpion = ''
-            Quarto setup for data science allowing the use of both R and Python with Knitr and reticulate.
-
-            Easily compile your work in a website ready to be hosted on services like GitHub Pages.
-          '';
-          welcomeText = ''
-            Welcome to your data science project powered by Quarto!
-          '';
-        };
-      };
     };
 }

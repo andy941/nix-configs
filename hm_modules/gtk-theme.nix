@@ -12,6 +12,7 @@
 
   config = lib.mkIf config.gtk-theme.enable {
     home.pointerCursor = {
+      enable = true;
       package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
       size = 30;
@@ -19,6 +20,7 @@
 
     gtk = {
       enable = true;
+
       font = {
         name = "Quicksand";
         size = 14;
