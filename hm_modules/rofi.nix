@@ -24,10 +24,6 @@
         display-drun = "   Apps ";
         display-run = "   Run ";
       };
-
-      pass = {
-        enable = true;
-      };
     };
   };
 }

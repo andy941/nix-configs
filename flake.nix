@@ -29,7 +29,7 @@
       ...
     }:
     let
-      version = "24.11";
+      version = "26.05";
     in
     {
       nixosConfigurations =
