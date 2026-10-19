@@ -53,13 +53,13 @@
           opener = {
             play = [
               {
-                run = ''vlc "$@"'';
+                run = "vlc %s";
                 orphan = true;
               }
             ];
             pdf = [
               {
-                run = ''zathura "$@"'';
+                run = "zathura %s";
                 orphan = true;
               }
             ];
@@ -68,15 +68,15 @@
           open = {
             prepend_rules = [
               {
-                name = "*.mp4";
+                url = "*.mp4";
                 use = "play";
               }
               {
-                name = "*.mkv";
+                url = "*.mkv";
                 use = "play";
               }
               {
-                name = "*.pdf";
+                url = "*.pdf";
                 use = "pdf";
               }
             ];
