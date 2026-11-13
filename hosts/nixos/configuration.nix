@@ -15,6 +15,12 @@
 
   system.stateVersion = version;
 
+  boot.kernelParams = [
+    # HACK: Work around the i915 DP MST ACT handshake failure that leaves the USB-C dock display blank after resume.
+    # Disabling MST restores the single external display; remove only after confirming the resume issue is fixed upstream.
+    "i915.enable_dp_mst=0"
+  ];
+
   networking = {
     hostName = "nixos";
     networkmanager = {
@@ -68,6 +74,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.fwupd.enable = true;
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
