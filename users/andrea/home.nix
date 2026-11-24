@@ -41,6 +41,7 @@
       wget
       curl
       xclip
+      stow
     ]
     ++ [
       # Desktop
